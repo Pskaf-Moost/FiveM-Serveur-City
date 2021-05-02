@@ -58,6 +58,11 @@ AddEventHandler('esx_drugs:hasEnteredMarker', function(zone)
 			CurrentAction     = zone
 			CurrentActionMsg  = _U('press_process_coke')
 			CurrentActionData = {}
+			
+		else 
+			CurrentAction     = zone
+			CurrentActionMsg  = _U('not_enough_coke')
+			CurrentActionData = {}		
 		end
 	end
 
@@ -80,6 +85,10 @@ AddEventHandler('esx_drugs:hasEnteredMarker', function(zone)
 			CurrentAction     = zone
 			CurrentActionMsg  = _U('press_process_meth')
 			CurrentActionData = {}
+		else 
+			CurrentAction     = zone
+			CurrentActionMsg  = _U('not_enough_meth')
+			CurrentActionData = {}		
 		end
 	end
 
@@ -88,6 +97,7 @@ AddEventHandler('esx_drugs:hasEnteredMarker', function(zone)
 			CurrentAction     = zone
 			CurrentActionMsg  = _U('press_sell_meth')
 			CurrentActionData = {}
+		
 		end
 	end
 
@@ -102,6 +112,10 @@ AddEventHandler('esx_drugs:hasEnteredMarker', function(zone)
 			CurrentAction     = zone
 			CurrentActionMsg  = _U('press_process_weed')
 			CurrentActionData = {}
+		else 
+			CurrentAction     = zone
+			CurrentActionMsg  = _U('not_enough_weed')
+			CurrentActionData = {}		
 		end
 	end
 
@@ -124,6 +138,10 @@ AddEventHandler('esx_drugs:hasEnteredMarker', function(zone)
 			CurrentAction     = zone
 			CurrentActionMsg  = _U('press_process_opium')
 			CurrentActionData = {}
+		else 
+			CurrentAction     = zone
+			CurrentActionMsg  = _U('not_enough_opium')
+			CurrentActionData = {}		
 		end
 	end
 
