@@ -20,8 +20,8 @@ table.insert(Config.DoorList, {
         },
     },
     authorizedJobs = {
-        ['police'] = 0,
-        ['offpolice'] = 0,
+        ['police'] = 1,
+        ['offpolice'] = 1,
     }
 })
 
@@ -261,7 +261,7 @@ table.insert(Config.DoorList, {
         ['volume'] = '0.7',
     },
     authorizedJobs = {
-        ['police'] = 0,
+        ['police'] = 1,
     }
 })
 
