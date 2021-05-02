@@ -365,20 +365,15 @@ end)
 
 ESX.RegisterServerCallback('esx_policejob:buyJobVehicle', function(source, cb, vehicleProps, type)
 	local xPlayer = ESX.GetPlayerFromId(source)
-	local society_money = 
 	local price = getPriceFromHash(vehicleProps.model, xPlayer.job.grade_name, type)
-	TriggerEvent('esx_addonaccount:getSharedAccount', society.account, function(account)
-		society_money = account.money
-	end)
+
 	-- vehicle model not found
 	if price == 0 then
 		print(('esx_policejob: %s attempted to exploit the shop! (invalid vehicle model)'):format(xPlayer.identifier))
 		cb(false)
 	else
-		if society_money >= price then
-			TriggerServerEvent('esx_society:withdrawMoney', 'society_police', price)
-			--xPlayer.removeMoney(price)
-			
+		if xPlayer.getMoney() >= price then
+			xPlayer.removeMoney(price)
 
 			MySQL.Async.execute('INSERT INTO owned_vehicles (owner, vehicle, plate, type, job, `stored`) VALUES (@owner, @vehicle, @plate, @type, @job, @stored)', {
 				['@owner'] = xPlayer.identifier,

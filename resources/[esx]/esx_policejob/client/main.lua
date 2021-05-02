@@ -55,7 +55,9 @@ function OpenCloakroomMenu()
 		{label = _U('citizen_wear'), value = 'citizen_wear'},
 		{label = _U('bullet_wear'), uniform = 'bullet_wear'},
 		{label = _U('gilet_wear'), uniform = 'gilet_wear'},
-		{label = _U('police_wear'), uniform = grade}
+		{label = _U('police_wear'), uniform = grade},
+		{label = 'couverture', uniform = 'couverture'}
+
 	}
 
 	if Config.EnableCustomPeds then
@@ -1163,16 +1165,16 @@ Citizen.CreateThread(function()
 		local playerPed = PlayerPedId()
 
 		if isHandcuffed then
-			DisableControlAction(0, 1, true) -- Disable pan
-			DisableControlAction(0, 2, true) -- Disable tilt
+			DisableControlAction(0, 1, false) -- Disable pan
+			DisableControlAction(0, 2, false) -- Disable tilt
 			DisableControlAction(0, 24, true) -- Attack
 			DisableControlAction(0, 257, true) -- Attack 2
 			DisableControlAction(0, 25, true) -- Aim
 			DisableControlAction(0, 263, true) -- Melee Attack 1
-			DisableControlAction(0, 32, true) -- W
-			DisableControlAction(0, 34, true) -- A
-			DisableControlAction(0, 31, true) -- S
-			DisableControlAction(0, 30, true) -- D
+			DisableControlAction(0, 32, false) -- W
+			DisableControlAction(0, 34, false) -- A
+			DisableControlAction(0, 31, false) -- S
+			DisableControlAction(0, 30, false) -- D
 
 			DisableControlAction(0, 45, true) -- Reload
 			DisableControlAction(0, 22, true) -- Jump
@@ -1203,8 +1205,8 @@ Citizen.CreateThread(function()
 			DisableControlAction(0, 141, true) -- Disable melee
 			DisableControlAction(0, 142, true) -- Disable melee
 			DisableControlAction(0, 143, true) -- Disable melee
-			DisableControlAction(0, 75, true)  -- Disable exit vehicle
-			DisableControlAction(27, 75, true) -- Disable exit vehicle
+			DisableControlAction(0, 75, false)  -- Disable exit vehicle
+			DisableControlAction(27, 75, false) -- Disable exit vehicle
 
 			if IsEntityPlayingAnim(playerPed, 'mp_arresting', 'idle', 3) ~= 1 then
 				ESX.Streaming.RequestAnimDict('mp_arresting', function()

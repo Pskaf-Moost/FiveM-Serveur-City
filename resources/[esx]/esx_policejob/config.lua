@@ -6,7 +6,7 @@ Config.MarkerSize                 = {x = 1.5, y = 1.5, z = 0.5}
 Config.MarkerColor                = {r = 50, g = 50, b = 204}
 
 Config.EnablePlayerManagement     = true -- Enable if you want society managing.
-Config.EnableArmoryManagement     = false
+Config.EnableArmoryManagement     = true
 Config.EnableESXIdentity          = true -- Enable if you're using esx_identity.
 Config.EnableLicenses             = true -- Enable if you're using esx_license.
 
@@ -107,8 +107,8 @@ Config.AuthorizedWeapons = {
 	},
 
 	lieutenant = {
-		{weapon = 'WEAPON_APPISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
-		{weapon = 'WEAPON_ADVANCEDRIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 50000},
+		{weapon = 'WEAPON_PISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
+		{weapon = 'WEAPON_CARBINERIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 50000},
 		{weapon = 'WEAPON_PUMPSHOTGUN', components = {2000, 6000, nil}, price = 70000},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
 		{weapon = 'WEAPON_STUNGUN', price = 500},
@@ -116,12 +116,13 @@ Config.AuthorizedWeapons = {
 	},
 
 	boss = {
-		{weapon = 'WEAPON_APPISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
-		{weapon = 'WEAPON_ADVANCEDRIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 50000},
+		{weapon = 'WEAPON_PISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
+		{weapon = 'WEAPON_CARBINERIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 50000},
 		{weapon = 'WEAPON_PUMPSHOTGUN', components = {2000, 6000, nil}, price = 70000},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
 		{weapon = 'WEAPON_STUNGUN', price = 500},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0}
+		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
+		{weapon = 'WEAPON_HEAVYSNIPER', price = 0}
 	}
 }
 
@@ -194,7 +195,10 @@ Config.AuthorizedVehicles = {
 Config.CustomPeds = {
 	shared = {
 		{label = 'Sheriff Ped', maleModel = 's_m_y_sheriff_01', femaleModel = 's_f_y_sheriff_01'},
-		{label = 'Police Ped', maleModel = 's_m_y_cop_01', femaleModel = 's_f_y_cop_01'}
+		{label = 'Police Ped', maleModel = 's_m_y_cop_01', femaleModel = 's_f_y_cop_01'},
+		{label = 'Patricio', maleModel = 'CS_Clay', femaleModel = 'CS_Clay'},
+		{label = 'Swat wear', maleModel = 's_m_y_swat_01', femaleModel = 's_m_y_swat_01'}
+
 	},
 
 	recruit = {},
@@ -315,14 +319,15 @@ Config.Uniforms = {
 	boss = {
 		male = {
 			tshirt_1 = 58,  tshirt_2 = 0,
-			torso_1 = 55,   torso_2 = 0,
+			torso_1 = 13,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
-			arms = 41,
+			arms = 37,
 			pants_1 = 25,   pants_2 = 0,
 			shoes_1 = 25,   shoes_2 = 0,
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
+			ears_1 = 0,     ears_2 = 0,
+			bproof_1 = 0,  bproof_2 = 0
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -352,6 +357,21 @@ Config.Uniforms = {
 		},
 		female = {
 			tshirt_1 = 36,  tshirt_2 = 1
+		}
+	},
+
+	couverture = {
+		male = {
+			tshirt_1 = 58,  tshirt_2 = 0,
+			torso_1 = 53,   torso_2 = 1,
+			decals_1 = 8,   decals_2 = 3,
+			arms = 37,
+			pants_1 = 25,   pants_2 = 0,
+			shoes_1 = 25,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 0,  bproof_2 = 0
 		}
 	}
 }

@@ -137,7 +137,7 @@ end)
 
 AddEventHandler('esx_status:setDisplay', function(val)
 	SendNUIMessage({
-		setDisplay = true,
+		setDisplay = false,
 		display    = val
 	})
 end)
