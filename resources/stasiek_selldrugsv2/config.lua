@@ -9,8 +9,7 @@ Config = {
         ['meth_pooch'] = 3400,
         --add as much as you want
     },
-    --cityPoint = vector3(0.0, -500.0, 100.0), --set cityPoint to false to disable
-	cityPoint = false,
+    cityPoint = vector3(0.0, -500.0, 100.0), --set cityPoint to false to disable
     notify = {
         title = 'Drogues',
         nodrugs = 'Vous n\'avez pas de drogue à vendre',
@@ -19,7 +18,7 @@ Config = {
         cops = '~r~Pas de policier en ville',
         searching = 'Vous cherchez des clients pour ~g~',
         abort = '~r~Le iencli ne veut plus acheter',
-        notfound = '~r~Il n\y a pas de client autour',
+        notfound = '~r~Il n\'y a pas de client autour',
         approach = 'Ton client approche',
         found = '~g~Vous avez trouvé un clien ~y~',
         press = 'Appuyez sur ~INPUT_PICKUP~ pour ~y~vendre',
