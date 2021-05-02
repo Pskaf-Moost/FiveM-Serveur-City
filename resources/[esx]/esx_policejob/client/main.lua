@@ -1165,16 +1165,16 @@ Citizen.CreateThread(function()
 		local playerPed = PlayerPedId()
 
 		if isHandcuffed then
-			DisableControlAction(0, 1, false) -- Disable pan
-			DisableControlAction(0, 2, false) -- Disable tilt
+			--DisableControlAction(0, 1, false) -- Disable pan
+			--DisableControlAction(0, 2, false) -- Disable tilt
 			DisableControlAction(0, 24, true) -- Attack
 			DisableControlAction(0, 257, true) -- Attack 2
 			DisableControlAction(0, 25, true) -- Aim
 			DisableControlAction(0, 263, true) -- Melee Attack 1
-			DisableControlAction(0, 32, false) -- W
-			DisableControlAction(0, 34, false) -- A
-			DisableControlAction(0, 31, false) -- S
-			DisableControlAction(0, 30, false) -- D
+			--DisableControlAction(0, 32, false) -- W
+			--DisableControlAction(0, 34, false) -- A
+			--DisableControlAction(0, 31, false) -- S
+			--DisableControlAction(0, 30, false) -- D
 
 			DisableControlAction(0, 45, true) -- Reload
 			DisableControlAction(0, 22, true) -- Jump
@@ -1187,7 +1187,7 @@ Citizen.CreateThread(function()
 			DisableControlAction(0, 170, true) -- Animations
 			DisableControlAction(0, 167, true) -- Job
 
-			DisableControlAction(0, 0, true) -- Disable changing view
+			--DisableControlAction(0, 0, true) -- Disable changing view
 			DisableControlAction(0, 26, true) -- Disable looking behind
 			DisableControlAction(0, 73, true) -- Disable clearing animation
 			DisableControlAction(2, 199, true) -- Disable pause screen
