@@ -1,4 +1,8 @@
 Locales['fr'] = {
+
+  --Jail
+  ['jail'] = 'Emprisonner',
+  ['jail_menu_info'] = 'Emprisonner pour combien de minutes ?',
   -- Cloakroom
   ['cloakroom'] = 'vestiaire',
   ['citizen_wear'] = 'tenue Civil',

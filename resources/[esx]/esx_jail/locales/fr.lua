@@ -1,8 +1,8 @@
 Locales ['fr'] = {
-  ['blip_name'] = 'Prison de Bolingbroke',
-  ['judge'] = 'Juge',
-  ['escape_attempt'] = 'Vous ne pouvez pas vous échapper',
-  ['remaining_msg'] = 'Encore ~b~%s~s~ secondes avant de sortir de prison',
-  ['jailed_msg'] = '%s est maintenant en prison pour %s minutes',
-  ['unjailed'] = '%s est sorti de prison'
+  ['blip_name'] = 'bolingbroke Penitentiary',
+  ['judge'] = 'JUDGE',
+  ['escape_attempt'] = 'you are not allowed to escape the prison!',
+  ['remaining_msg'] = 'there remains ~b~%s~s~ seconds until you are released from jail',
+  ['jailed_msg'] = '%s is now in jail for %s minutes',
+  ['unjailed'] = '%s has been released from jail!'
 }
