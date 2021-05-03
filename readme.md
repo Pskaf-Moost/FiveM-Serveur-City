@@ -90,7 +90,7 @@ Différents script de braquage à la place de celui déja installé :
 - [ ] Nouvelle interface création personnage (peut etre buggé) : https://github.com/PainedPsyche/cui_character
 
 - [ ] Il faut ajouter des items. 
-- - [ ] Munitions : Les rendre achetables dans les magasins d'armes, (ou à l'armurerie pour la police). Il faut aussi les rendre utilisable, et lors de l'utilisation le player recevra les munitions.
+- - [x] Munitions : Les rendre achetables dans les magasins d'armes, (ou à l'armurerie pour la police). Il faut aussi les rendre utilisable, et lors de l'utilisation le player recevra les munitions.
 - - [ ] Il faut rajouter de l'alcool et d'autres nourriture avec ce script : (https://github.com/TheMrDeivid/ESX_shops_with_bars).
 Il rajoute des bars et un grand nombre d'item dans le BDD. Le Github contient Esx_shop et esx_basicneed qui sont déja installé, il faudra les remplacer et les back-up, au cas où.
 
