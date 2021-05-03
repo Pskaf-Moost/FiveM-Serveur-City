@@ -10,6 +10,63 @@ Config.Locale        = 'fr'
 Config.LicenseEnable = true -- only turn this on if you are using esx_license
 Config.LicensePrice  = 500
 
+Config.WeaponAmmos = {
+    {
+		item = 'ammobox_pistol',
+		weapon = 'WEAPON_PISTOL',
+		amount = 20,
+		price = 100
+	},
+    {
+		item = 'ammobox_smg',
+		weapon = 'WEAPON_MICROSMG',
+		amount = 30,
+		price = 100
+	},
+    {
+		item = 'ammobox_shotgun',
+		weapon = 'WEAPON_PUMPSHOTGUN',
+		amount = 20,
+		price = 100
+	},
+    {
+		item = 'ammobox_assaultrifle',
+		weapon = 'WEAPON_ASSAULTRIFLE',
+		amount = 30,
+		price = 100
+	},
+    {
+		item = 'ammobox_specialcarbine',
+		weapon = 'WEAPON_SPECIALCARBINE',
+		amount = 20,
+		price = 100
+	},
+    {
+		item = 'ammobox_sniperrifle',
+		weapon = 'WEAPON_SNIPERRIFLE',
+		amount = 10,
+		price = 100
+	},
+    {
+		item = 'ammobox_apppistol',
+		weapon = 'WEAPON_APPISTOL',
+		amount = 20,
+		price = 100
+	},
+    {
+		item = 'ammobox_carbinerifle',
+		weapon = 'WEAPON_CARBINERIFLE',
+		amount = 10,
+		price = 100
+	},
+    {
+		item = 'ammobox_heavysniper',
+		weapon = 'WEAPON_HEAVYSNIP',
+		amount = 5,
+		price = 100
+	}
+}
+
 Config.Zones = {
 
 	GunShop = {

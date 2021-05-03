@@ -55,3 +55,15 @@ INSERT INTO `weashops` (`zone`, `item`, `price`) VALUES
 	('BlackWeashop', 'WEAPON_RAILGUN', 50000),
 	('BlackWeashop', 'WEAPON_STICKYBOMB', 500)
 ;
+
+INSERT INTO 'items' ('name','label','weight','rare','can_remove') VALUES
+	('ammobox_pistol',			'Pistol Ammo Box', 			1,0,1),
+	('ammobox_smg',				'SMG Ammo Box', 			1,0,1),
+	('ammobox_shotgun',			'Shotgun Shell Ammo Box', 	1,0,1),
+	('ammobox_assaultrifle',	'AR Ammo Box', 				1,0,1),
+	('ammobox_specialcarbine',	'Special Carbine Ammo Box', 1,0,1),
+	('ammobox_sniperrifle',		'Sniper Rifle Ammo Box', 	1,0,1),
+	('ammobox_apppistol',		'APPPistol Ammo Box', 		1,0,1),
+	('ammobox_carbinerifle',	'Carbine Ammo Box', 		1,0,1),
+	('ammobox_heavysniper',		'Heavy Sniper Ammo Box', 	1,0,1)
+;

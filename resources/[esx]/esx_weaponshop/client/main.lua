@@ -51,8 +51,59 @@ function OpenBuyLicenseMenu(zone)
 end
 
 function OpenShopMenu(zone)
-	local elements = {}
 	ShopOpen = true
+	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'shop', {
+		title = _U('shop_menu_title'),
+		align = 'top-left',
+		elements = {
+			{label = _U('menu_weapons'), value = 'weapons'},
+			{label = _U('menu_ammos'), value = 'ammos'},
+		}
+	}, function(data, menu)
+		if data.current.value == 'weapons' then
+			menu.close()
+			OpenWeaponShopMenu(zone)
+		elseif data.current.value == 'ammos' then
+			menu.close()
+			OpenAmmosShopMenu(zone)
+		end
+	end, function(data, menu)
+		menu.close()
+		ShopOpen = false
+	end)
+
+end
+
+function OpenAmmosShopMenu(zone)
+	local elements = {}
+
+	for i, ammobox in ipairs(Config.WeaponAmmos) do
+		table.insert( elements, {
+			label = ('%s (<span style="color: orange;">%s</span>) - <span style="color: green;">%s EUR</span>')
+				:format(_U(ammobox.weapon), ammobox.amount, ammobox.price),
+			price = ammobox.price,
+			ammoboxName = ammobox.item
+		})
+	end
+
+	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'shop', {
+		title = _U('shop_menu_title'),
+		align = 'top-left',
+		elements = elements
+	},function(data, menu)
+		ESX.TriggerServerCallback('esx_weaponshop:buyAmmoBox', function(bought)
+			if bought then
+				xPlayer.showNotification(string.format(_U('ammobox_bought', _(data.current.weapon), data.current.price)))
+			else
+				PlaySoundFrontend(-1, 'ERROR', 'HUD_AMMO_SHOP_SOUNDSET', false)
+			end
+		end, data.current.ammoboxName, zone)
+	end)
+
+end
+
+function OpenWeaponShopMenu(zone)
+	local elements = {}
 
 	for i=1, #Config.Zones[zone].Items, 1 do
 		local item = Config.Zones[zone].Items[i]
@@ -81,8 +132,8 @@ function OpenShopMenu(zone)
 		end, data.current.weaponName, zone)
 	end, function(data, menu)
 		PlaySoundFrontend(-1, 'BACK', 'HUD_AMMO_SHOP_SOUNDSET', false)
-		ShopOpen = false
 		menu.close()
+		ShopOpen = false
 
 		CurrentAction     = 'shop_menu'
 		CurrentActionMsg  = _U('shop_menu_prompt')
