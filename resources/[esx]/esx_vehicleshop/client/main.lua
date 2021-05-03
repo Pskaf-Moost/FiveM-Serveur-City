@@ -239,6 +239,7 @@ function OpenShopMenu()
 
 					ESX.TriggerServerCallback('esx_vehicleshop:buyVehicle', function(success)
 						if success then
+						
 							IsInShopMenu = false
 							menu2.close()
 							menu.close()
@@ -247,6 +248,7 @@ function OpenShopMenu()
 							ESX.Game.SpawnVehicle(vehicleData.model, Config.Zones.ShopOutside.Pos, Config.Zones.ShopOutside.Heading, function(vehicle)
 								TaskWarpPedIntoVehicle(playerPed, vehicle, -1)
 								SetVehicleNumberPlateText(vehicle, generatedPlate)
+								TriggerServerEvent('Alf-Carkeys:createKey', generatedPlate)
 
 								FreezeEntityPosition(playerPed, false)
 								SetEntityVisible(playerPed, true)

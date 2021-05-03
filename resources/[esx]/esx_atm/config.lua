@@ -5,7 +5,7 @@ Config.BlipSprite   = 431
 
 Config.Locale       = 'fr'
 
-Config.EnableBlips = true
+Config.EnableBlips = false
 
 Config.ATMLocations = {
 	{ ['x'] = -386.733,  ['y'] = 6045.953,  ['z'] = 31.501},
