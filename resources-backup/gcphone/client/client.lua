@@ -779,7 +779,7 @@ RegisterNUICallback('appelsDeleteHistorique', function (data, cb)
   cb()
 end)
 RegisterNUICallback('appelsDeleteAllHistorique', function (data, cb)
-  appelsDeleteAllHistorique(data.infoCall)
+  appelsDeleteAllHistorique()
   cb()
 end)
 
