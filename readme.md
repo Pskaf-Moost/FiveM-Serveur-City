@@ -94,7 +94,7 @@ Différents script de braquage à la place de celui déja installé :
 - - [ ] Il faut rajouter de l'alcool et d'autres nourriture avec ce script : (https://github.com/TheMrDeivid/ESX_shops_with_bars).
 Il rajoute des bars et un grand nombre d'item dans le BDD. Le Github contient Esx_shop et esx_basicneed qui sont déja installé, il faudra les remplacer et les back-up, au cas où.
 
-- [ ] Il faut rajouter une options de véhicule lock, avec des clefs ou autre.
+- [x] Il faut rajouter une options de véhicule lock, avec des clefs ou autre.
 Cette partie peut être un peu délicate, il faut trouver un script qui fonctionne..
 Apparemment ce script est cool : https://forum.cfx.re/t/free-alf-carkeys-the-ultimate-vehicle-system/2793960 
 Les fatures qui sont intéréssantes : 
@@ -111,11 +111,11 @@ Les fatures qui sont intéréssantes :
 
 - [ ] Nouvelle interface pour le clotheShop : https://forum.cfx.re/t/release-esx-np-skinshop-update/993801 avec sauvegarde de tenue et menu.
 
-- [ ] Radar vitesse pour la police : https://forum.cfx.re/t/release-wraith-ars-2x-police-radar-and-plate-reader-v1-3-0/1058277
+- [x] Radar vitesse pour la police : https://forum.cfx.re/t/release-wraith-ars-2x-police-radar-and-plate-reader-v1-3-0/1058277
 
 - [ ] Pêche : https://forum.cfx.re/t/release-advanced-fishing/277267
 
-- [ ] Arme lourde sur le dos : https://forum.cfx.re/t/release-weapons-on-back/292036
+- [x] Arme lourde sur le dos : https://forum.cfx.re/t/release-weapons-on-back/292036
 
 - [ ] Mettre des NPC dans les shop : https://forum.cfx.re/t/release-ped-npc-addon-shops-nightclub-drugs-update/433051
 
