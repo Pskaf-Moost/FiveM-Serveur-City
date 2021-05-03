@@ -78,14 +78,13 @@ Locales ['es'] = {
   -- license
   ['license_title'] = 'Debes tener una licencia de procesado para procesar este producto, se puede comprar aquí.',
   ['license_no'] = 'No',
-  ['license_bought'] = 'Compraste el ~b~%s~s~ por ~r~$%s~s~',
+  ['license_bought'] = 'Has comprado ~b~1x~s~ ~y~%s~s~ por ~g~$%s~s~',
   ['license_bought_fail'] = 'No puedes permitirte un ~b~%s~s~!',
   ['license_weed'] = 'Licencia de procesamiento de Cannabis',
   ['license_meth'] = 'Licencia de procesamiento de Metanfetamina',
   ['need_license'] = 'Necesitas una licencia para usar esto.',
   ['licenseshop_title'] = 'Tienda De Licencias',
   ['licenseshop_prompt'] = 'Presiona ~INPUT_CONTEXT~ para abrir la ~g~Tienda De Licencias~s~.',
-  ['license_bought'] = 'Has comprado ~b~1x~s~ ~y~%s~s~ por ~g~$%s~s~',
   ['license_inventoryfull'] = 'Ya tienes esta licencia.',
   
   -- moneywash

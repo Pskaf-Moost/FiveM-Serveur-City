@@ -35,7 +35,6 @@ Locales['fr'] = {
   ['lj_cutwood_button'] = 'appuyez sur ~INPUT_PICKUP~ pour couper du bois.',
   ['lj_board'] = 'planches',
   ['lj_planks'] = 'paquet de planche',
-  ['lj_cutwood'] = 'bois coupé',
   ['lj_pick_boards'] = 'appuyez sur ~INPUT_PICKUP~ pour récupérer des planches.',
   ['lj_deliver_button'] = 'appuyez sur ~INPUT_PICKUP~ pour livrer les planches.',
 

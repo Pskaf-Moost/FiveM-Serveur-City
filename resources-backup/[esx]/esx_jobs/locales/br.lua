@@ -31,11 +31,10 @@ Locales['br'] = {
   ['lj_mapblip'] = 'pilha de madeira',
   ['lj_wood'] = 'madeira',
   ['lj_pickup'] = 'pressione ~INPUT_PICKUP~ para recuperar madeira.',
-  ['lj_cutwood'] = 'corte de Madeira',
+  ['lj_cutwood'] = 'madeira cortada',
   ['lj_cutwood_button'] = 'pressione ~INPUT_PICKUP~ para cortar madeira.',
   ['lj_board'] = 'tábua',
   ['lj_planks'] = 'tábua embalada',
-  ['lj_cutwood'] = 'madeira cortada',
   ['lj_pick_boards'] = 'pressione ~INPUT_PICKUP~ para recuperar tábuas.',
   ['lj_deliver_button'] = 'pressione ~INPUT_PICKUP~ para entregar as tábuas.',
 

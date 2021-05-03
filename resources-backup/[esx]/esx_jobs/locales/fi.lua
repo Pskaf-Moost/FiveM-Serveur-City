@@ -35,7 +35,6 @@ Locales['fi'] = {
   ['lj_cutwood_button'] = 'paina ~INPUT_PICKUP~ pilkkoaksesi puita.',
   ['lj_board'] = 'lankkuja',
   ['lj_planks'] = 'paketoituja lankkuja',
-  ['lj_cutwood'] = 'pilko puita',
   ['lj_pick_boards'] = 'paina ~INPUT_PICKUP~ saadaksesi lankkuja',
   ['lj_deliver_button'] = 'paina ~INPUT_PICKUP~ toimitaaksesi lankut.',
 

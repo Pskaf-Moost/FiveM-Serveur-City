@@ -35,7 +35,6 @@ Locales['es'] = {
   ['lj_cutwood_button'] = 'presiona ~INPUT_PICKUP~ para cortar madera.',
   ['lj_board'] = 'tablas',
   ['lj_planks'] = 'empaquetar',
-  ['lj_cutwood'] = 'cortar madera',
   ['lj_pick_boards'] = 'presiona ~INPUT_PICKUP~ para agarrar tablas.',
   ['lj_deliver_button'] = 'presiona ~INPUT_PICKUP~ para entregar tablas.',
 

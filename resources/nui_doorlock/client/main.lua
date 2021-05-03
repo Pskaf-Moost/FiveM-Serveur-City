@@ -504,7 +504,7 @@ AddEventHandler('nui_doorlock:newDoorSetup', function(args)
 		end
 		local maxDistance, slides, garage = 2.0, false, false
 		if doorType == 'sliding' then slides = true
-		elseif doorType == 'garage' then slides, garage = 6.0, true, true end
+		elseif doorType == 'garage' then slides, garage = 6.0, true end
 		if slides then maxDistance = 6.0 end
 		local doorHash = 'doorlock_'..#Config.DoorList + 1
 		AddDoorToSystem(doorHash, model, coords, false, false, false)

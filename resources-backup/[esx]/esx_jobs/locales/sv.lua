@@ -35,7 +35,6 @@ Locales['sv'] = {
   ['lj_cutwood_button'] = 'tryck ~INPUT_PICKUP~ för att hugga trä.',
   ['lj_board'] = 'brädor',
   ['lj_planks'] = 'brädpaket',
-  ['lj_cutwood'] = 'hugg trä',
   ['lj_pick_boards'] = 'tryck ~INPUT_PICKUP~ för att hämta brädorna.',
   ['lj_deliver_button'] = 'tryck ~INPUT_PICKUP~ för att sälja brädorna.',
 

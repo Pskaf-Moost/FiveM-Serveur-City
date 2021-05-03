@@ -31,11 +31,10 @@ Locales['de'] = {
   ['lj_mapblip'] = 'Holzstapel',
   ['lj_wood'] = 'Holz',
   ['lj_pickup'] = 'Drücke ~INPUT_PICKUP~ um Holz zu sammeln.',
-  ['lj_cutwood'] = 'Holzverarbeitung',
+  ['lj_cutwood'] = 'Holz schneiden',
   ['lj_cutwood_button'] = 'Drücke ~INPUT_PICKUP~ um das Holz zu schneiden.',
   ['lj_board'] = 'Bretter',
   ['lj_planks'] = 'Holz verarbeiten',
-  ['lj_cutwood'] = 'Holz schneiden',
   ['lj_pick_boards'] = 'Drücke ~INPUT_PICKUP~ um Bretter zu bekommen.',
   ['lj_deliver_button'] = 'Drücke ~INPUT_PICKUP~ um die Bretter zu liefern.',
 

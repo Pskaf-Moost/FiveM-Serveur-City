@@ -67,11 +67,12 @@ function GetLicenses(target, cb)
 					MySQL.Async.fetchAll('SELECT label FROM licenses WHERE type = @type', {
 						['@type'] = type
 					}, function(result2)
-						table.insert(licenses, {
-							type  = type,
-							label = result2[1].label
-						})
-
+						if #result > 0 then
+							table.insert(licenses, {
+								type  = type,
+								label = result2[1].label
+							})
+						end 
 						cb()
 					end)
 				end)
