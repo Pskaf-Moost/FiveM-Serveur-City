@@ -62,14 +62,23 @@ function OpenShopMenu(zone)
 	}, function(data, menu)
 		if data.current.value == 'weapons' then
 			menu.close()
+			PlaySoundFrontend(-1, 'BACK', 'HUD_AMMO_SHOP_SOUNDSET', false)
 			OpenWeaponShopMenu(zone)
 		elseif data.current.value == 'ammos' then
 			menu.close()
+			PlaySoundFrontend(-1, 'BACK', 'HUD_AMMO_SHOP_SOUNDSET', false)
 			OpenAmmosShopMenu(zone)
 		end
 	end, function(data, menu)
+		PlaySoundFrontend(-1, 'BACK', 'HUD_AMMO_SHOP_SOUNDSET', false)
 		menu.close()
 		ShopOpen = false
+
+		CurrentAction     = 'shop_menu'
+		CurrentActionMsg  = _U('shop_menu_prompt')
+		CurrentActionData = { zone = zone }
+	end, function(data, menu)
+		PlaySoundFrontend(-1, 'NAV', 'HUD_AMMO_SHOP_SOUNDSET', false)
 	end)
 
 end
@@ -86,6 +95,7 @@ function OpenAmmosShopMenu(zone)
 		})
 	end
 
+
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'shop', {
 		title = _U('shop_menu_title'),
 		align = 'top-left',
@@ -98,8 +108,17 @@ function OpenAmmosShopMenu(zone)
 				PlaySoundFrontend(-1, 'ERROR', 'HUD_AMMO_SHOP_SOUNDSET', false)
 			end
 		end, data.current.ammoboxName, zone)
-	end)
+	end,function(data, menu)
+		PlaySoundFrontend(-1, 'BACK', 'HUD_AMMO_SHOP_SOUNDSET', false)
+		menu.close()
+		ShopOpen = false
 
+		CurrentAction     = 'shop_menu'
+		CurrentActionMsg  = _U('shop_menu_prompt')
+		CurrentActionData = { zone = zone }
+	end, function(data, menu)
+		PlaySoundFrontend(-1, 'NAV', 'HUD_AMMO_SHOP_SOUNDSET', false)
+	end)
 end
 
 function OpenWeaponShopMenu(zone)
@@ -115,9 +134,6 @@ function OpenWeaponShopMenu(zone)
 		})
 	end
 
-	ESX.UI.Menu.CloseAll()
-	PlaySoundFrontend(-1, 'BACK', 'HUD_AMMO_SHOP_SOUNDSET', false)
-
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'shop', {
 		title = _U('shop_menu_title'),
 		align = 'top-left',
@@ -126,6 +142,7 @@ function OpenWeaponShopMenu(zone)
 		ESX.TriggerServerCallback('esx_weaponshop:buyWeapon', function(bought)
 			if bought then
 				DisplayBoughtScaleform(data.current.weaponName, data.current.price)
+
 			else
 				PlaySoundFrontend(-1, 'ERROR', 'HUD_AMMO_SHOP_SOUNDSET', false)
 			end
