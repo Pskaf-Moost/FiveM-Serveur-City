@@ -515,29 +515,6 @@ Citizen.CreateThread(function()
     end
 end)
 
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(1)
-        local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
-        
-            if vehicle ~= nil and vehicle ~= 0 then
-
-            if (IsControlJustReleased(0, Config.EngineButton) or IsDisabledControlJustReleased(0, Config.EngineButton)) and GetPedInVehicleSeat(vehicle, -1) then
-                toggleEngine()
-                --print('received toggle')
-            end
-
-            
-            if GetIsVehicleEngineRunning(GetVehiclePedIsIn(PlayerPedId())) ~= engine[vehicle] then
-                --print('current veh  '.. tostring(GetVehiclePedIsIn(PlayerPedId())))
-                --print('status ist nicht gleich  soll - ' .. tostring(engine[vehicle]) .. ' - ist - ' .. tostring(GetIsVehicleEngineRunning(GetVehiclePedIsIn(PlayerPedId()))) )
-                SetVehicleEngineOn(vehicle, engine[vehicle], true, true)
-                --print('test')
-            end
-        end
-    end
-end)
-
 function DoorLock()
         local dict = "anim@mp_player_intmenu@key_fob@"
         
