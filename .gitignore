@@ -10,3 +10,5 @@ icudtl.dat
 components.json
 
 cache/
+
+resources/nui_doorlock/server/states.json
