@@ -12,3 +12,5 @@ components.json
 cache/
 
 resources/nui_doorlock/server/states.json
+
+imgui.ini

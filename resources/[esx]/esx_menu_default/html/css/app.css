@@ -28,9 +28,8 @@
 }
 
 .menu.align-left {
-  right: : 40;
+  right: 40;
   top : 80; 
-
 }
 
 .menu.align-top-left {
@@ -181,7 +180,7 @@
   font-family: SignPainter;  
   font-size: 59px;
 
-  background-image: url("../img/header/taxi.png");
+  background-image: url("../img/header/taxi.jpg");
   text-align      : center;
   height          : 90px;
   line-height     : 105px;

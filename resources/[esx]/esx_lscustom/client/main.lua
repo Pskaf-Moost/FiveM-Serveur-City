@@ -60,6 +60,7 @@ end)
 function OpenLSMenu(elems, menuName, menuTitle, parent)
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), menuName,
 	{
+		css='lscustom',
 		title    = menuTitle,
 		align    = 'top-left',
 		elements = elems
