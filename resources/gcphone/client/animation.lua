@@ -2,8 +2,6 @@
 -- #Author: Jonathan D @ Gannon
 --====================================================================================
 
--- JUST TESTING THAT IT ACTUALLY WORKS
-
 local myPedId = nil
 
 local phoneProp = 0
@@ -52,13 +50,6 @@ local ANIMS = {
 	}
 }
 
-function isDoingCall()
-	print(lastAnim)
-	if lastAnim == 'cellphone_text_to_call' then
-		return true
-	end
-end
-
 function newPhoneProp()
 	deletePhone()
 	RequestModel(phoneModel)
@@ -67,16 +58,10 @@ function newPhoneProp()
 	end
 	phoneProp = CreateObject(phoneModel, 1.0, 1.0, 1.0, 1, 1, 0)
 	local bone = GetPedBoneIndex(myPedId, 28422)
-	local isUnarmed = GetCurrentPedWeapon(myPedId, 0xA2719263)
-	if not isUnarmed then
-		AttachEntityToEntity(phoneProp, myPedId, bone, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 0, 0, 2, 1)
-	else
-		SetCurrentPedWeapon(myPedId, 0xA2719263, true)
-		AttachEntityToEntity(phoneProp, myPedId, bone, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 0, 0, 2, 1)
-	end
+	AttachEntityToEntity(phoneProp, myPedId, bone, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 0, 0, 2, 1)
 end
 
-function deletePhone()
+function deletePhone ()
 	if phoneProp ~= 0 then
 		Citizen.InvokeNative(0xAE3CBE5BF394C9C9 , Citizen.PointerValueIntInitialized(phoneProp))
 		phoneProp = 0

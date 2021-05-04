@@ -1,17 +1,13 @@
 --====================================================================================
 -- #Author: Jonathan D @Gannon
--- Modified by:
--- BTNGaming 
--- Chip
--- DmACK (f.sanllehiromero@uandresbello.edu)
--- #Version 4.0
+-- #Version 2.0
 --====================================================================================
 ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 math.randomseed(os.time()) 
 
---- For phone number style XXX-XXXX
+--- Pour les numero du style XXX-XXXX
 function getPhoneRandomNumber()
     local numBase0 = math.random(100,999)
     local numBase1 = math.random(0,9999)
@@ -20,7 +16,7 @@ function getPhoneRandomNumber()
 	return num
 end
 
---- For this style 06XXXXXXXX Remove the -- from the next 3 lines
+--- Exemple pour les numero du style 06XXXXXXXX
 -- function getPhoneRandomNumber()
 --     return '0' .. math.random(600000000,699999999)
 -- end
@@ -30,9 +26,9 @@ end
   Un solution ESC basé sur la solution donnée par HalCroves
   https://forum.fivem.net/t/tutorial-for-gcphone-with-call-and-job-message-other/177904
 --]]
-
+--[[
  ESX.RegisterServerCallback('gcphone:getItemAmount', function(source, cb, item)
-	--print('gcphone:getItemAmount call item : ' .. item)
+	print('gcphone:getItemAmount call item : ' .. item)
 	local xPlayer = ESX.GetPlayerFromId(source)
         local items = xPlayer.getInventoryItem(item)
 
@@ -42,13 +38,12 @@ end
             cb(items.count)
         end
 end)
+--]]
 
 --====================================================================================
 --  SIM CARDS // Thanks to AshKetchumza for the idea an some code.
---  TO ENABLE SIM CARDS, Remove --[[ & ]]-- on lines 49 and 76.
 --====================================================================================
 
---[[
 RegisterServerEvent('gcPhone:useSimCard')
 AddEventHandler('gcPhone:useSimCard', function(source, identifier)
     local _source = source
@@ -76,7 +71,6 @@ end)
 ESX.RegisterUsableItem('sim_card', function (source)
     TriggerEvent('gcPhone:useSimCard', source)
 end)
-]]--
 
 --====================================================================================
 --  Utils
@@ -252,39 +246,16 @@ function _internalAddMessage(transmitter, receiver, message, owner)
     })[1]
 end
 
-function addMessage(source, identifier, phone_number, message, gps_data)
+function addMessage(source, identifier, phone_number, message)
     local sourcePlayer = tonumber(source)
     local otherIdentifier = getIdentifierByPhoneNumber(phone_number)
     local myPhone = getNumberPhone(identifier)
-
-    local message = '' .. message ..''
-    local isRealtimeGPS = false
-    local gpsTimeout = Config.ShareRealtimeGPSDefaultTimeInMs
-
-    if (message == '%posrealtime%') then
-        if (gps_data) then
-            gpsTimeout = gps_data.time
-        end
-        local timeInMinutes = ESX.Math.Round( gpsTimeout / 1000 / 60 )
-        local timeString = (timeInMinutes == nil) and '' or ' ' .. tostring(timeInMinutes) .. ' min'
-        message = 'GPS Live Position:' .. timeString .. ''
-        isRealtimeGPS = true
-    end
-
-    if (message == '%pos%') then
-        message = 'GPS Position: ' .. gps_data.x .. ', ' .. gps_data.y
-    end
-
     if otherIdentifier ~= nil then 
         local tomess = _internalAddMessage(myPhone, phone_number, message, 0)
         getSourceFromIdentifier(otherIdentifier, function (osou)
-            local targetPlayer = tonumber(osou)
-            if targetPlayer ~= nil then 
+            if tonumber(osou) ~= nil then 
                 -- TriggerClientEvent("gcPhone:allMessage", osou, getMessages(otherIdentifier))
-                if (isRealtimeGPS == true) then
-                    TriggerClientEvent('gcPhone:receiveLivePosition', targetPlayer, sourcePlayer, gpsTimeout, myPhone, 0)
-                end
-                TriggerClientEvent("gcPhone:receiveMessage", targetPlayer, tomess)
+                TriggerClientEvent("gcPhone:receiveMessage", tonumber(osou), tomess)
             end
         end) 
     end
@@ -321,12 +292,12 @@ function deleteAllMessage(identifier)
 end
 
 RegisterServerEvent('gcPhone:sendMessage')
-AddEventHandler('gcPhone:sendMessage', function(phoneNumber, message, gpsData)
+AddEventHandler('gcPhone:sendMessage', function(phoneNumber, message)
     local _source = source
     local sourcePlayer = tonumber(_source)
 	xPlayer = ESX.GetPlayerFromId(_source)
     identifier = xPlayer.identifier
-    addMessage(sourcePlayer, identifier, phoneNumber, message, gpsData)
+    addMessage(sourcePlayer, identifier, phoneNumber, message)
 end)
 
 RegisterServerEvent('gcPhone:deleteMessage')
@@ -494,16 +465,7 @@ AddEventHandler('gcPhone:internal_startCall', function(source, phone_number, rtc
                 AppelsEnCours[indexCall].receiver_src = srcTo
                 TriggerEvent('gcPhone:addCall', AppelsEnCours[indexCall])
                 TriggerClientEvent('gcPhone:waitingCall', sourcePlayer, AppelsEnCours[indexCall], true)
-                local xPlayer = ESX.GetPlayerFromId(srcTo)
-                local hasPhone  = xPlayer.getInventoryItem('phone').count
-                print(hasPhone)
-                if hasPhone >= 1 and Config.ItemRequired then
-                    TriggerClientEvent('gcPhone:waitingCall', srcTo, AppelsEnCours[indexCall], false)
-                elseif hasPhone == 0 then
-                    print("no phone")
-                elseif not Config.ItemRequired then
-                    TriggerClientEvent('gcPhone:waitingCall', srcTo, AppelsEnCours[indexCall], false)
-                end
+                TriggerClientEvent('gcPhone:waitingCall', srcTo, AppelsEnCours[indexCall], false)
             else
                 TriggerEvent('gcPhone:addCall', AppelsEnCours[indexCall])
                 TriggerClientEvent('gcPhone:waitingCall', sourcePlayer, AppelsEnCours[indexCall], true)
@@ -513,6 +475,7 @@ AddEventHandler('gcPhone:internal_startCall', function(source, phone_number, rtc
         TriggerEvent('gcPhone:addCall', AppelsEnCours[indexCall])
         TriggerClientEvent('gcPhone:waitingCall', sourcePlayer, AppelsEnCours[indexCall], true)
     end
+
 end)
 
 RegisterServerEvent('gcPhone:startCall')
@@ -675,100 +638,9 @@ function getBourse()
             libelle = 'Amazon',
             price = 120,
             difference = 0
-        }
-    }
+        }}
     return result
 end
-
-
---====================================================================================
---  App banking
---====================================================================================
-
----- Handle bank transfers while the target player is online
--- This is the default functionality of the new_banking resourcefile:
---  https://github.com/jacobwi/new_banking/blob/7dbc64d77b5c6a83fc04cc2d164a92977d796d7d/server.lua#L70
-function bankTransferOnline(xPlayer, zPlayer, amount)
-    xPlayer.removeAccountMoney('bank', amount)
-    zPlayer.addAccountMoney('bank', amount)
-    
-    TriggerClientEvent('esx:showAdvancedNotification', xPlayer.source,
-                       'Bank', 'Transfer Money',
-                       'You transfered ~r~$' .. amount .. '~s~ to ~r~' .. zPlayer.source .. ' .',
-                       'CHAR_BANK_MAZE', 9)
-    
-    TriggerClientEvent('esx:showAdvancedNotification', zPlayer.source,
-                        'Bank', 'Transfer Money',
-                        'You received ~r~$' .. amount .. '~s~ from ~r~' .. xPlayer.source .. ' .',
-                        'CHAR_BANK_MAZE', 9)
-end
-
----- handle bank transfers while the target player is offline
--- Due to the way ESX transfers money (updating on the client, then on regular intervals saving
--- that value to the database) we cannot use ESX functions to update the offlien target player's account
--- data. Instead we manually write the SQL to update the database.
-function bankTransferOffline(xPlayer, zPlayerIdentifier, phoneNumber, amount)
-    -- Note that JSON_ functions are compatibile with MySQL 5.7.8+
-    MySQL.Async.fetchScalar("SELECT JSON_EXTRACT(accounts, '$.bank') AS bank FROM users WHERE identifier = @identifier", {
-        ['@identifier'] = zPlayerIdentifier
-    }, function(result)
-        local zPlayerCurrentBalance = tonumber(result)
-        if zPlayerCurrentBalance == nil then
-            xPlayer.triggerEvent('esx:showAdvancedNotification', 'Bank', 'Transfer Money', 'Bank transfer of ~r~$' .. amount .. '~s~ to ~r~' .. phoneNumber .. ' FAILED.', 'CHAR_BANK_MAZE', 9)
-            return
-        end
-        local zPlayerNewBankBalance = zPlayerCurrentBalance + amount
-
-        -- since xPlayer is online (they intiated the transfer) use ESX functions to update their account
-        xPlayer.removeAccountMoney('bank', amount)
-
-        MySQL.Sync.execute('UPDATE `users` SET `accounts` = JSON_SET(accounts, "$.bank", @bank) WHERE `identifier` = @identifier', {
-            ['@bank'] = zPlayerNewBankBalance, ['@identifier'] = zPlayerIdentifier
-        })
-        xPlayer.triggerEvent('esx:showAdvancedNotification', 'Bank', 'Transfer Money', 'You transfered ~r~$' .. amount .. '~s~ to ~r~' .. phoneNumber .. ' .', 'CHAR_BANK_MAZE', 9)
-    end)
-end
-
----- handle bank transfers when the target player is online
--- this handler is a copy/paste from the new_banking resource with modifications
--- to send by money by phone number and allows for the target player to be both
--- online and offline. See original code from the new_banking resource here:
--- https://github.com/jacobwi/new_banking/blob/7dbc64d77b5c6a83fc04cc2d164a92977d796d7d/server.lua#L53
-RegisterServerEvent('gcPhone:bankTransferByPhoneNumber')
-AddEventHandler('gcPhone:bankTransferByPhoneNumber', function(phoneNumber, amountStr)
-	local _source = source
-    local xPlayer = ESX.GetPlayerFromId(_source)
-    local zPlayerIdentifier = getIdentifierByPhoneNumber(phoneNumber)
-    local zPlayer = ESX.GetPlayerFromIdentifier(zPlayerIdentifier)
-
-    local amount = tonumber(amountStr)
-
-	local balance = 0
-    balance = xPlayer.getAccount('bank').money
-
-    -- use a comparison with identifier so we can handle both online and offline
-	if xPlayer.identifier == zPlayerIdentifier then
-        TriggerClientEvent('esx:showAdvancedNotification', _source, 'Bank',
-                            'Transfer Money',
-                            'You cannot transfer to your self!',
-                            'CHAR_BANK_MAZE', 9)
-    else
-		if balance <= 0 or balance < amount or amount <= 0 then
-            TriggerClientEvent('esx:showAdvancedNotification', _source,
-                               'Bank', 'Transfer Money',
-                               'Not enough money to transfer!',
-                               'CHAR_BANK_MAZE', 9)
-        else
-            if zPlayer then -- the player is online, we can use ESX functionality to handle transferring money
-                bankTransferOnline(xPlayer, zPlayer, amount)
-            else  -- if the player is offline we have to manually update the database
-                bankTransferOffline(xPlayer, zPlayerIdentifier, phoneNumber, amount)
-            end
-            
-		end
-		
-	end
-end)
 
 --====================================================================================
 --  App ... WIP
@@ -800,8 +672,7 @@ function onCallFixePhone (source, phone_number, rtcOffer, extraData)
     if extraData ~= nil and extraData.useNumber ~= nil then
         srcPhone = extraData.useNumber
     else
-        srcPhone = getNumberPhone(srcIdentifier)
-        --srcPhone = '###-####' -- This change was made for public phones without phone number reading in mind
+        srcPhone = '###-####' -- This change was made for public phones without phone number reading in mind
     end
 
     AppelsEnCours[indexCall] = {
