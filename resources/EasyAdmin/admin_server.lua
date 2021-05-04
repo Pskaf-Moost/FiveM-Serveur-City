@@ -952,7 +952,7 @@ Citizen.CreateThread(function()
 			print("^1-^2-^3-^4-^5-^6-^8-^9-^1-^2-^3-^4-^5-^6-^8-^9-^1-^2-^3-^3!^1FATAL ERROR^3!^3-^2-^1-^9-^8-^6-^5-^4-^3-^2-^1-^9-^8-^6-^5-^4-^3-^2-^7\n")
 		end
 		
-		performBanlistUpgrades()
+		performBanlistUpgrades(blacklist)
 		
 		if data and not remove then
 			addBan(data)

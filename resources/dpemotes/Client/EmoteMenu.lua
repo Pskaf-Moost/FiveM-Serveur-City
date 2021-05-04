@@ -100,7 +100,7 @@ function AddEmoteMenu(menu)
     favmenu.OnItemSelect = function(sender, item, index)
       if FavEmoteTable[index] == "Reset keybind" then
         FavoriteEmote = ""
-        ShowNotification("Reset keybind :)")
+        ShowNotification("Reset keybind :)", 2000)
       return end 
 
       if Config.FavKeybindEnabled then
