@@ -20,6 +20,7 @@ function ShowJobListingMenu()
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'joblisting', {
+			css = 'job',
 			title    = _U('job_center'),
 			align    = 'top-left',
 			elements = elements

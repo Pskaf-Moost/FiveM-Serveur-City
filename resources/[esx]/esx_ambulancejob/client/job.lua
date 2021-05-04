@@ -413,6 +413,7 @@ end)
 
 function OpenCloakroomMenu()
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'cloakroom', {
+		css = 'cloakroom',
 		title    = _U('cloakroom'),
 		align    = 'top-left',
 		elements = {

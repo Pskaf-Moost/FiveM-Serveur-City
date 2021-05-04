@@ -823,6 +823,7 @@ ESX.ShowInventory = function()
 	ESX.UI.Menu.CloseAll()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'inventory', {
+		css = 'inventory',
 		title    = _U('inventory', currentWeight, ESX.PlayerData.maxWeight),
 		align    = 'bottom-right',
 		elements = elements

@@ -4,6 +4,7 @@ function OpenVehicleSpawnerMenu(type, hospital, part, partNum)
 	local playerCoords = GetEntityCoords(PlayerPedId())
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle', {
+		css = 'garage',
 		title    = _U('garage_title'),
 		align    = 'top-left',
 		elements = {
@@ -69,6 +70,7 @@ function OpenVehicleSpawnerMenu(type, hospital, part, partNum)
 
 					if #garage > 0 then
 						ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_garage', {
+							css = 'garage',
 							title    = _U('garage_title'),
 							align    = 'top-left',
 							elements = garage
@@ -194,6 +196,7 @@ function OpenShopMenu(elements, restoreCoords, shopCoords)
 	isInShopMenu = true
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_shop', {
+		css = 'cardealer',
 		title    = _U('vehicleshop_title'),
 		align    = 'top-left',
 		elements = elements

@@ -105,6 +105,7 @@ function ReturnVehicleProvider()
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'return_provider_menu', {
+			css='cardealer',
 			title    = _U('return_provider_menu'),
 			align    = 'top-left',
 			elements = elements
@@ -198,6 +199,7 @@ function OpenShopMenu()
 	end
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_shop', {
+		css='cardealer',
 		title    = _U('car_dealer'),
 		align    = 'top-left',
 		elements = elements
@@ -327,6 +329,7 @@ function OpenResellerMenu()
 	ESX.UI.Menu.CloseAll()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'reseller', {
+		css='cardealer',
 		title    = _U('car_dealer'),
 		align    = 'top-left',
 		elements = {
@@ -464,6 +467,7 @@ function OpenPopVehicleMenu()
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'commercial_vehicles', {
+			css='cardealer',
 			title    = _U('vehicle_dealer'),
 			align    = 'top-left',
 			elements = elements
@@ -501,6 +505,7 @@ function OpenRentedVehiclesMenu()
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'rented_vehicles', {
+			css='cardealer',
 			title    = _U('rent_vehicle'),
 			align    = 'top-left',
 			elements = elements
@@ -576,6 +581,7 @@ function OpenGetStocksMenu()
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'stocks_menu', {
+			css='cardealer',
 			title    = _U('dealership_stock'),
 			align    = 'top-left',
 			elements = elements
@@ -621,6 +627,7 @@ function OpenPutStocksMenu()
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'stocks_menu', {
+			css='inventory',
 			title    = _U('inventory'),
 			align    = 'top-left',
 			elements = elements

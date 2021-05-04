@@ -30,6 +30,7 @@ function OpenBuyLicenseMenu(zone)
 	ESX.UI.Menu.CloseAll()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'shop_license', {
+		css = 'ammu',
 		title = _U('buy_license'),
 		align = 'top-left',
 		elements = {
@@ -53,8 +54,8 @@ end
 function OpenShopMenu(zone)
 	ShopOpen = true
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'shop', {
+		css = 'ammu',
 		title = _U('shop_menu_title'),
-		align = 'top-left',
 		elements = {
 			{label = _U('menu_weapons'), value = 'weapons'},
 			{label = _U('menu_ammos'), value = 'ammos'},
@@ -97,8 +98,8 @@ function OpenAmmosShopMenu(zone)
 
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'shop', {
+		css = 'ammu',
 		title = _U('shop_menu_title'),
-		align = 'top-left',
 		elements = elements
 	},function(data, menu)
 		ESX.TriggerServerCallback('esx_weaponshop:buyAmmoBox', function(bought)
@@ -131,8 +132,8 @@ function OpenWeaponShopMenu(zone)
 	end
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'shop', {
+		css = 'ammu',
 		title = _U('shop_menu_title'),
-		align = 'top-left',
 		elements = elements
 	}, function(data, menu)
 		ESX.TriggerServerCallback('esx_weaponshop:buyWeapon', function(bought)

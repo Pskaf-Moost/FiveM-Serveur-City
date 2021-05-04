@@ -46,6 +46,7 @@ function OpenShopMenu(zone)
 	ESX.UI.Menu.CloseAll()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'shop', {
+		css = 'shop',
 		title    = _U('shop'),
 		align    = 'bottom-right',
 		elements = elements
