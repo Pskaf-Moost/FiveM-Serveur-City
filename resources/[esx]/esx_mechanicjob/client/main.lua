@@ -82,6 +82,7 @@ function OpenMechanicActionsMenu()
 	ESX.UI.Menu.CloseAll()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'mechanic_actions', {
+		css = 'garage',
 		title    = _U('mechanic'),
 		align    = 'top-left',
 		elements = elements
@@ -567,6 +568,7 @@ function OpenPutStocksMenu()
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'stocks_menu', {
+			css = 'inventory',
 			title    = _U('inventory'),
 			align    = 'top-left',
 			elements = elements

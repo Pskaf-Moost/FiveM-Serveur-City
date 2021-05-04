@@ -72,6 +72,7 @@ function OpenMenu(submitCb, cancelCb, restrict)
         camOffset = _components[1].camOffset
 
         ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'skin', {
+            css = 'skin',
             title = _U('skin_menu'),
             align = 'top-left',
             elements = elements

@@ -109,6 +109,7 @@ function OpenCloakroom()
 	ESX.UI.Menu.CloseAll()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'taxi_cloakroom', {
+		css='cloakroom',
 		title    = _U('cloakroom_menu'),
 		align    = 'top-left',
 		elements = {
@@ -242,6 +243,7 @@ function OpenTaxiActionsMenu()
 	ESX.UI.Menu.CloseAll()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'taxi_actions', {
+		css='taxi',
 		title    = _U('taxi'),
 		align    = 'top-left',
 		elements = elements
@@ -270,6 +272,7 @@ function OpenMobileTaxiActionsMenu()
 	ESX.UI.Menu.CloseAll()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'mobile_taxi_actions', {
+		css='taxi',
 		title    = _U('taxi'),
 		align    = 'top-left',
 		elements = {
@@ -359,6 +362,7 @@ function OpenGetStocksMenu()
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'stocks_menu', {
+			css='taxi',
 			title    = _U('taxi_stock'),
 			align    = 'top-left',
 			elements = elements
@@ -407,6 +411,7 @@ function OpenPutStocksMenu()
         end
         
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'stocks_menu', {
+			css='inventory',
 			title    = _U('inventory'),
 			align    = 'top-left',
 			elements = elements
