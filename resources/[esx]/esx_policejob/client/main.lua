@@ -73,6 +73,7 @@ function OpenCloakroomMenu()
 	ESX.UI.Menu.CloseAll()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'cloakroom', {
+		css = 'cloakroom',
 		title    = _U('cloakroom'),
 		align    = 'top-left',
 		elements = elements
@@ -222,6 +223,7 @@ function OpenArmoryMenu(station)
 	ESX.UI.Menu.CloseAll()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'armory', {
+		css      = 'lspd',
 		title    = _U('armory'),
 		align    = 'top-left',
 		elements = elements
@@ -252,6 +254,7 @@ function OpenPoliceActionsMenu()
 	ESX.UI.Menu.CloseAll()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'police_actions', {
+		css      = 'lspd',
 		title    = 'Police',
 		align    = 'top-left',
 		elements = {
@@ -277,6 +280,7 @@ function OpenPoliceActionsMenu()
 			end
 
 			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'citizen_interaction', {
+				css      = 'lspd',
 				title    = _U('citizen_interaction'),
 				align    = 'top-left',
 				elements = elements
@@ -326,6 +330,7 @@ function OpenPoliceActionsMenu()
 			table.insert(elements, {label = _U('search_database'), value = 'search_database'})
 
 			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_interaction', {
+				css      = 'lspd',
 				title    = _U('vehicle_interaction'),
 				align    = 'top-left',
 				elements = elements
@@ -391,6 +396,7 @@ function OpenPoliceActionsMenu()
 			end)
 		elseif data.current.value == 'object_spawner' then
 			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'citizen_interaction', {
+				css      = 'lspd',
 				title    = _U('traffic_interaction'),
 				align    = 'top-left',
 				elements = {
@@ -443,6 +449,7 @@ function OpenIdentityCardMenu(player)
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'citizen_interaction', {
+			css      = 'lspd',
 			title    = _U('citizen_interaction'),
 			align    = 'top-left',
 			elements = elements
@@ -494,6 +501,7 @@ function OpenBodySearchMenu(player)
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'body_search', {
+			css      = 'lspd',
 			title    = _U('search'),
 			align    = 'top-left',
 			elements = elements
@@ -510,6 +518,7 @@ end
 
 function OpenFineMenu(player)
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'fine', {
+		css      = 'lspd',
 		title    = _U('fine'),
 		align    = 'top-left',
 		elements = {
@@ -526,6 +535,7 @@ end
 
 function JailPlayer(player)
 	ESX.UI.Menu.Open('dialog', GetCurrentResourceName(), 'jail_menu', {
+		css      = 'lspd',
 		title = _U('jail_menu_info'),
 	}, function (data2, menu)
 		local jailTime = tonumber(data2.value)
@@ -554,6 +564,7 @@ function OpenFineCategoryMenu(player, category)
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'fine_category', {
+			css      = 'lspd',
 			title    = _U('fine'),
 			align    = 'top-left',
 			elements = elements
@@ -577,6 +588,7 @@ end
 
 function LookupVehicle()
 	ESX.UI.Menu.Open('dialog', GetCurrentResourceName(), 'lookup_vehicle', {
+		css      = 'lspd',
 		title = _U('search_database_title'),
 	}, function(data, menu)
 		local length = string.len(data.value)
@@ -624,6 +636,7 @@ function ShowPlayerLicense(player)
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'manage_license', {
+			css      = 'lspd',
 			title    = _U('license_revoke'),
 			align    = 'top-left',
 			elements = elements,
@@ -698,6 +711,7 @@ function OpenGetWeaponMenu()
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'armory_get_weapon', {
+			css      = 'lspd',
 			title    = _U('get_weapon_menu'),
 			align    = 'top-left',
 			elements = elements
@@ -730,6 +744,7 @@ function OpenPutWeaponMenu()
 	end
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'armory_put_weapon', {
+		css      = 'lspd',
 		title    = _U('put_weapon_menu'),
 		align    = 'top-left',
 		elements = elements
@@ -805,6 +820,7 @@ function OpenBuyWeaponsMenu()
 	end
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'armory_buy_weapons', {
+		css      = 'lspd',
 		title    = _U('armory_weapontitle'),
 		align    = 'top-left',
 		elements = elements
@@ -834,6 +850,7 @@ end
 
 function OpenWeaponComponentShop(components, weaponName, parentShop)
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'armory_buy_weapons_components', {
+		css      = 'lspd',
 		title    = _U('armory_componenttitle'),
 		align    = 'top-left',
 		elements = components
@@ -872,6 +889,7 @@ function OpenGetStocksMenu()
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'stocks_menu', {
+			css      = 'lspd',
 			title    = _U('police_stock'),
 			align    = 'top-left',
 			elements = elements
@@ -919,6 +937,7 @@ function OpenPutStocksMenu()
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'stocks_menu', {
+			css      = 'lspd',
 			title    = _U('inventory'),
 			align    = 'top-left',
 			elements = elements

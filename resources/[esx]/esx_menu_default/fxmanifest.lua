@@ -60,6 +60,7 @@ files {
 	'html/img/header/valider.png',
 	'html/img/header/vehicle.png',
 	'html/img/header/vestiaire.jpg',
+	'html/img/header/lspd.jpg',
 }
 
 dependencies {

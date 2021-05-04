@@ -188,6 +188,18 @@
   font-style: oblique;
 }
 
+.menu .head_lspd {
+  font-family: SignPainter;  
+  font-size: 59px;
+
+  background-image: url("../img/header/lspd.jpg");
+  text-align      : center;
+  height          : 90px;
+  line-height     : 105px;
+  color : white;
+  font-style: oblique;
+}
+
 .menu .head_Magasin {
   font-family: SignPainter;  
   font-size: 59px;
