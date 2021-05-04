@@ -88,7 +88,7 @@ function OpenAmmosShopMenu(zone)
 
 	for i, ammobox in ipairs(Config.WeaponAmmos) do
 		table.insert( elements, {
-			label = ('%s (<span style="color: orange;">%s</span>) - <span style="color: green;">%s EUR</span>')
+			label = ('%s<div style="color:orange;">x%s</div><div style="color:green;">%s EUR</div>')
 				:format(_U(ammobox.weapon), ammobox.amount, ammobox.price),
 			price = ammobox.price,
 			ammoboxName = ammobox.item
@@ -111,11 +111,7 @@ function OpenAmmosShopMenu(zone)
 	end,function(data, menu)
 		PlaySoundFrontend(-1, 'BACK', 'HUD_AMMO_SHOP_SOUNDSET', false)
 		menu.close()
-		ShopOpen = false
-
-		CurrentAction     = 'shop_menu'
-		CurrentActionMsg  = _U('shop_menu_prompt')
-		CurrentActionData = { zone = zone }
+		OpenShopMenu(zone)
 	end, function(data, menu)
 		PlaySoundFrontend(-1, 'NAV', 'HUD_AMMO_SHOP_SOUNDSET', false)
 	end)
@@ -150,11 +146,7 @@ function OpenWeaponShopMenu(zone)
 	end, function(data, menu)
 		PlaySoundFrontend(-1, 'BACK', 'HUD_AMMO_SHOP_SOUNDSET', false)
 		menu.close()
-		ShopOpen = false
-
-		CurrentAction     = 'shop_menu'
-		CurrentActionMsg  = _U('shop_menu_prompt')
-		CurrentActionData = { zone = zone }
+		OpenShopMenu(zone)
 	end, function(data, menu)
 		PlaySoundFrontend(-1, 'NAV', 'HUD_AMMO_SHOP_SOUNDSET', false)
 	end)
