@@ -109,7 +109,7 @@ function OpenCloakroom()
 	ESX.UI.Menu.CloseAll()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'taxi_cloakroom', {
-		css='cloakroom',
+		css      = 'cloakroom',
 		title    = _U('cloakroom_menu'),
 		align    = 'top-left',
 		elements = {
@@ -155,6 +155,7 @@ function OpenVehicleSpawnerMenu()
 			end
 
 			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_spawner', {
+				css		 = 'taxi',
 				title    = _U('spawn_veh'),
 				align    = 'top-left',
 				elements = elements
@@ -186,6 +187,7 @@ function OpenVehicleSpawnerMenu()
 	else -- not society vehicles
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_spawner', {
+			css 	 = 'taxi',
 			title    = _U('spawn_veh'),
 			align    = 'top-left',
 			elements = Config.AuthorizedVehicles
@@ -243,7 +245,7 @@ function OpenTaxiActionsMenu()
 	ESX.UI.Menu.CloseAll()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'taxi_actions', {
-		css='taxi',
+		css      = 'taxi',
 		title    = _U('taxi'),
 		align    = 'top-left',
 		elements = elements
@@ -272,13 +274,14 @@ function OpenMobileTaxiActionsMenu()
 	ESX.UI.Menu.CloseAll()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'mobile_taxi_actions', {
-		css='taxi',
+		css 	 = 'taxi',
 		title    = _U('taxi'),
 		align    = 'top-left',
 		elements = {
 			{label = _U('billing'),   value = 'billing'},
 			{label = _U('start_job'), value = 'start_job'}
-	}}, function(data, menu)
+		}
+	}, function(data, menu)
 		if data.current.value == 'billing' then
 
 			ESX.UI.Menu.Open('dialog', GetCurrentResourceName(), 'billing', {

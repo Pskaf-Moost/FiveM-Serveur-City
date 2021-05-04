@@ -24,8 +24,6 @@ files {
 	'html/img/keys/enter.png',
 	'html/img/keys/return.png',
 	'html/img/header/247.png',
-	'html/img/header/tatoo.png',
-	'html/img/header/Inventaire.jpg',
 	'html/img/header/Accessoires.png',
 	'html/img/header/actions_metier.jpg',
 	'html/img/header/ammunation.jpg',
@@ -41,6 +39,7 @@ files {
 	'html/img/header/gestionpatron.png',
 	'html/img/header/gpsrapide.jpg',
 	'html/img/header/identite.png',
+	'html/img/header/Inventaire.jpg',
 	'html/img/header/lscus.png',
 	'html/img/header/masque.jpg',
 	'html/img/header/Me_concernant.jpg',
@@ -51,11 +50,12 @@ files {
 	'html/img/header/Quincaillerie.jpg',
 	'html/img/header/skin_menu.png',
 	'html/img/header/suburban.png',
+	'html/img/header/tatoo.png',
+	'html/img/header/taxi.jpg',
 	'html/img/header/universite.jpg',
 	'html/img/header/valider.png',
 	'html/img/header/vehicle.png',
-	'html/img/header/vestiaire.jpg'
-
+	'html/img/header/vestiaire.jpg',
 }
 
 dependencies {
