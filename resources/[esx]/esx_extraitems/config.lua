@@ -33,7 +33,7 @@ Config.BinocularsPutAway = 177 -- Backspace Key
 
 -- Vehicle GPS
 Config.GPS = {
-	VehicleGPS = true, -- Set to true to use Vehicle GPS.
+	VehicleGPS = false, -- Set to true to use Vehicle GPS.
 	LimitedVehicles = true, -- Set to true to only allow Aircrafts, Boats, & Cars to use GPS.
 	OnlyFrontSeats = false, -- Set to true to only allow the front 2 seats to be able to see Radar if they used it.
 	BikeGPS = {
