@@ -1,16 +1,19 @@
 
+.vs/
 citizen/
+cache/
+resources/\[gameplay\]/
+resources/\[local\]/
+resources/\[managers\]/
+resources/\[system\]/
+resources/\[test\]/
+resources-backup/
 
+server.cfg
 server-tls.key
-
 server-tls.crt
 
 icudtl.dat
-
 components.json
-
-cache/
-
 resources/nui_doorlock/server/states.json
-
 imgui.ini
