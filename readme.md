@@ -51,7 +51,7 @@ La prise de service est faite lorsque le policier enfile sa tenue pour le moment
 
 - [ ] Demande de renfort : https://github.com/FAXES/Police-Backup/tree/ESXmaster
 
-- [ ] Holster fonctionnel : https://forum.cfx.re/t/release-dynamic-holsters-eup-support/731182
+- [x] Holster fonctionnel : https://forum.cfx.re/t/release-dynamic-holsters-eup-support/731182
 
 ------------
 
@@ -105,7 +105,7 @@ Les fatures qui sont intéréssantes :
 
 - [ ] Il faut modifier l'interface de l'inventaire et du HUD avec le menu horrible (je m'en occuperais). ( https://forum.cfx.re/t/release-esx-menu-default-edited-to-looks-like-gtaonline/151775)
 
-- [ ] Il faut rajouter cette map (https://forum.cfx.re/t/new-postal-code-map/97628)
+- [x] Il faut rajouter cette map (https://forum.cfx.re/t/new-postal-code-map/97628)
 
 - [ ] Ce script permet au joueur de présenter ses licences au joueur devant lui ( https://forum.cfx.re/t/release-jsfour-idcard-esx/169787 ). Si on peut le modifier, modifier les images des cartes d'identité etc, ça peut être sympa.
 
