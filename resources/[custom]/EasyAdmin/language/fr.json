@@ -129,5 +129,7 @@
     "teleportedtoplayer": "**%s** téléporté vers **%s**",
     "searchbans": "Search Bans",
     "searchbansfail": "No Ban with the Search Criteria was found.",
-    "identifier": "Identifier %s"
+    "identifier": "Identifier %s",
+    "reviveall": "Ressussiter tout le monde",
+    "reviveplayer": "Ressussiter"
 }]

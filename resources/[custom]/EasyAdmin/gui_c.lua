@@ -385,13 +385,20 @@ function GenerateMenu() -- this is a big ass function
 			thisPlayer:AddItem(thisItem)
 			thisPlayer.OnListSelect = function(sender, item, index)
 					if item == thisItem then
-							i = item:IndexToItem(index)
 							if i == GetLocalisedText("on") then
 								TriggerServerEvent("EasyAdmin:FreezePlayer", thePlayer.id, true)
 							else
 								TriggerServerEvent("EasyAdmin:FreezePlayer", thePlayer.id, false)
 							end
 					end
+			end
+		end
+
+		if permissions["revive"] and not RedM then
+			local thisItem = NativeUI.CreateItem(GetLocalisedText("reviveplayer"),"")
+			thisPlayer:AddItem(thisItem)
+			thisItem.Activated = function(ParentMenu,SelectedItem)
+				TriggerServerEvent("EasyAdmin:RevivePlayer", thePlayer.id)
 			end
 		end
 	
@@ -417,6 +424,15 @@ function GenerateMenu() -- this is a big ass function
 		thisItem.Activated = function(ParentMenu,SelectedItem)
 			local pCoords = GetEntityCoords(PlayerPedId(),true)
 			TriggerServerEvent("EasyAdmin:TeleportPlayerToCoords", -1, pCoords)
+		end
+	end
+
+	if permissions["revive"] and not RedM then
+
+		local thisItem = NativeUI.CreateItem(GetLocalisedText("reviveall"), "")
+		thisPlayer:AddItem(thisItem)
+		thisItem.Activated = function(ParentMenu,SelectedItem)
+			TriggerServerEvent("EasyAdmin:RevivePlayers", -1)
 		end
 	end
 

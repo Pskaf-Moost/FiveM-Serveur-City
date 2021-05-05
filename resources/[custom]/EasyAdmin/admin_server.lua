@@ -5,6 +5,10 @@
 ------------------------------------
 ------------------------------------
 
+ESX = nil
+
+TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+
 Citizen.CreateThread(function()
 	while true do 
 		Wait(20000)
@@ -722,6 +726,16 @@ Citizen.CreateThread(function()
 			end
 			TriggerClientEvent("EasyAdmin:FreezePlayer", playerId, toggle)
 		end
+	end)
+
+	RegisterServerEvent("EasyAdmin:RevivePlayer")
+	AddEventHandler('EasyAdmin:RevivePlayer', function(playerId)
+		TriggerClientEvent('esx_ambulancejob:revive', playerId)
+	end)
+
+	RegisterServerEvent("EasyAdmin:RevivePlayers")
+	AddEventHandler('EasyAdmin:RevivePlayers', function(source)
+		ExecuteCommand('reviveall')
 	end)
 	
 	RegisterServerEvent("EasyAdmin:TookScreenshot")

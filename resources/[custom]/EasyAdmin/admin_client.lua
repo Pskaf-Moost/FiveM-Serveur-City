@@ -25,7 +25,6 @@ RegisterNetEvent("EasyAdmin:GetPlayerList")
 RegisterNetEvent("EasyAdmin:GetInfinityPlayerList")
 RegisterNetEvent("EasyAdmin:fillCachedPlayers")
 
-
 AddEventHandler('EasyAdmin:adminresponse', function(response,permission)
 	permissions[response] = permission
 	if permission == true then
@@ -164,6 +163,7 @@ AddEventHandler('EasyAdmin:CaptureScreenshot', function(toggle, url, field)
 			TriggerServerEvent("EasyAdmin:TookScreenshot", data)
 	end)
 end)
+
 
 function spectatePlayer(targetPed,target,name)
 	local playerPed = PlayerPedId() -- yourself

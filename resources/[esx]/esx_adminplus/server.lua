@@ -370,6 +370,11 @@ AddEventHandler('esx:playerDropped', function(playerId, reason)
 	end
 end)
 
+ESX.RegisterServerCallback('esx:GetDeadPlayers', function(source, cb)
+	cb(deadPlayers)
+end)
+
+
 function havePermission(xPlayer, exclude)	-- you can exclude rank(s) from having permission to specific commands 	[exclude only take tables]
 	if exclude and type(exclude) ~= 'table' then exclude = nil;print("^3[esx_admin] ^1ERROR ^0exclude argument is not table..^0") end	-- will prevent from errors if you pass wrong argument
 
