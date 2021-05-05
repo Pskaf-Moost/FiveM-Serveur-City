@@ -47,13 +47,7 @@ end)
 RegisterNetEvent('outlaw_alert:receiveAlert')
 AddEventHandler('outlaw_alert:receiveAlert', function(type, gps, duration, ignorePolice)
     local alert = Config.Alerts[type]
-
-    -- if ignorePolice and xPlayer.job ~= nil and PlayerData.job.name == 'police' then
-	-- 	return
-	-- end
-
-    --ESX.ShowNotification(('outlaw_alert:receiveAlert : %s at x:%s y:%s sz:%s'):format(type, gps.x, gps.y, gps.z))
-
+    
     local blip = AddBlipForCoord(gps.x,gps.y,gps.z)
     SetBlipSprite(blip,  alert.blip.sprite)
     SetBlipColour(blip,  alert.blip.color)

@@ -28,7 +28,9 @@ Mais on ne sait pas comment est géré la fuite de la prison (si le joueur s'él
 Il faut que le garage soit accessible par tous les policiers, et que tous les véhicules à l'intérieur soient partagés par la police. Pour le moment chaque policier doit acheter son véhicule, et les autres ne peuvent pas le partager et le sortir du garage... Peut être peut-on trouver un esx_garage pour la police déja fait ? 
 Sinon, il faut regarder comment fonctionne les ESX Addon_inventory, Datasore, etc... Qui sont censés rajouter des inventaires partagés pour les sociétés : Peut être qu'on peut mettre des véhicules dans des "inventaires" de société ?
 
-- [ ] Alerte quand il y a une bagarre ou un coup de feu : https://github.com/TanguyOrtegat/esx_jb_outlawalert
+- [x] Alerte quand il y a une bagarre ou un coup de feu : https://github.com/TanguyOrtegat/esx_jb_outlawalert
+      - [ ] mettre de jolies blips
+      - [ ] faire en sorte que CarJacking/Street Fight ne spamment pas autant
 
 - [x] Commissariat plus grand : https://sv.gta5-mods.com/maps/missionrow-extended-interior
 
