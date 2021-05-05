@@ -1,7 +1,6 @@
 # Serveur FiveM - ESX Framework - Moost
 ## _To-do, fix, future features_
 
-
 ------------
 
 
@@ -82,7 +81,6 @@ Différents script de braquage à la place de celui déja installé :
 
 - https://forum.cfx.re/t/esx-fleeca-bank-heists/1352598
 
-
 ------------
 
 ### _Inventaire, Hud, Divers_ ###
@@ -103,7 +101,7 @@ Les fatures qui sont intéréssantes :
 » Give Keys to other Users via. Menu
 » Change your Plate
 
-- [ ] Il faut modifier l'interface de l'inventaire et du HUD avec le menu horrible (je m'en occuperais). ( https://forum.cfx.re/t/release-esx-menu-default-edited-to-looks-like-gtaonline/151775)
+- [x] Il faut modifier l'interface de l'inventaire et du HUD avec le menu horrible (je m'en occuperais). ( https://forum.cfx.re/t/release-esx-menu-default-edited-to-looks-like-gtaonline/151775)
 
 - [x] Il faut rajouter cette map (https://forum.cfx.re/t/new-postal-code-map/97628)
 

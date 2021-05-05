@@ -799,24 +799,27 @@ ESX.ShowInventory = function()
 
 		if HasPedGotWeapon(playerPed, weaponHash, false) then
 			local ammo, label = GetAmmoInPedWeapon(playerPed, weaponHash)
+			
+			if ammo > 0 then 
 
-			if v.ammo then
-				label = ('%s - %s %s'):format(v.label, ammo, v.ammo.label)
-			else
-				label = v.label
+				if v.ammo then
+					label = ('%s - %s %s'):format(v.label, ammo, v.ammo.label)
+				else
+					label = v.label
+				end
+
+				table.insert(elements, {
+					label = label,
+					count = 1,
+					type = 'item_weapon',
+					value = v.name,
+					usable = false,
+					rare = false,
+					ammo = ammo,
+					canGiveAmmo = (v.ammo ~= nil),
+					canRemove = true
+				})
 			end
-
-			table.insert(elements, {
-				label = label,
-				count = 1,
-				type = 'item_weapon',
-				value = v.name,
-				usable = false,
-				rare = false,
-				ammo = ammo,
-				canGiveAmmo = (v.ammo ~= nil),
-				canRemove = true
-			})
 		end
 	end
 
