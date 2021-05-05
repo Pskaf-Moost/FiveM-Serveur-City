@@ -324,7 +324,7 @@ function OpenPoliceActionsMenu()
 			if DoesEntityExist(vehicle) then
 				table.insert(elements, {label = _U('vehicle_info'), value = 'vehicle_infos'})
 				table.insert(elements, {label = _U('pick_lock'), value = 'hijack_vehicle'})
-				table.insert(elements, {label = _U('impound'), value = 'impound'})
+				--table.insert(elements, {label = _U('impound'), value = 'impound'})
 			end
 
 			table.insert(elements, {label = _U('search_database'), value = 'search_database'})
