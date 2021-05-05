@@ -3,7 +3,7 @@ Config = {}
 Config.Alerts = {
     carjacking = {
         label = 'carjacking',
-        duration = 1, -- alert's duration in minutes
+        duration = 50, -- alert's duration in minutes
         active = true, -- launch alerts
         ignorePolice = true -- ignore if player's job is police
     },
@@ -15,13 +15,13 @@ Config.Alerts = {
     },
     streetfight = {
         label = 'streetfight',
-        duration = 1,
+        duration = 1000,
         active = true,
         ignorePolice = false
     },
     gunshot = {
         label = 'gunshot',
-        duration = 1,
+        duration = 5000,
         active = true,
         ignorePolice = false
     }

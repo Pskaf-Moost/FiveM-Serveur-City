@@ -3,38 +3,57 @@ ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 RegisterServerEvent('outlaw_alert:carThiefInProgress')
-AddEventHandler('outlaw_alert:infractionInProgress', function(ped)
-	SendInfractionAlert(Config.Alerts.carthief, ped)
+AddEventHandler('outlaw_alert:infractionInProgress', function( playerId, playerpos)
+	SendInfractionAlert(Config.Alerts.carthief, playerId, playerpos)
 end)
 
 RegisterServerEvent('outlaw_alert:streetFightInProgress')
-AddEventHandler('outlaw_alert:streetFightInProgress', function(ped)
-	SendInfractionAlert(Config.Alerts.streetfight, ped)
+AddEventHandler('outlaw_alert:streetFightInProgress', function( playerId, playerpos)
+	SendInfractionAlert(Config.Alerts.streetfight, playerId, playerpos)
 end)
 
 RegisterServerEvent('outlaw_alert:carJackingInProgress')
-AddEventHandler('outlaw_alert:carJackingInProgress', function(ped)
-	SendInfractionAlert(Config.Alerts.carjacking, ped)
+AddEventHandler('outlaw_alert:carJackingInProgress', function( playerId, playerpos)
+	SendInfractionAlert(Config.Alerts.carjacking, playerId, playerpos)
 end)
 
 RegisterServerEvent('outlaw_alert:gunShotInProgress')
-AddEventHandler('outlaw_alert:gunShotInProgress', function(ped)
-	SendInfractionAlert(Config.Alerts.gunshot, ped)
+AddEventHandler('outlaw_alert:gunShotInProgress', function( playerId, playerpos)
+	SendInfractionAlert(Config.Alerts.gunshot, playerId, playerpos)
 end)
 
 
-function GetPedCoordAndStreets(ped)
-	local pedPos = GetEntityCoords(ped,  true)
-	local street1_hash, street2_hash = Citizen.InvokeNative( 0x2EB41072B4C1E4C0, pedPos.x, pedPos.y, pedPos.z, Citizen.PointerValueInt(), Citizen.PointerValueInt() )
-	local street1 = GetStreetNameFromHashKey(street1_hash)
-	local street2 = GetStreetNameFromHashKey(street2_hash)
+function GetPolicePlayers()
+	local cops = {}
+	local players_id = ESX.GetPlayers()
 
-	return pedPos, street1, street2
+	for i,id in ipairs(players_id)do
+
+		local player = ESX.GetPlayerFromId(id)
+	
+		if player.job.name == 'police' then
+			table.insert(cops, player)
+		end
+	end
+
+	return cops
 end
 
-function SendInfractionAlert(alert, ped)
+function SendInfractionAlert(alert, playerId, playerpos)
+	
+	if not alert.active then
+		return
+	end
 
-	local gps, street1, street2 = GetPedCoordAndStreets(ped)
+	local player = ESX.GetPlayerFromId(playerId)
 
-	TriggerEvent('outlaw_alert:receiveAlert', type, gps, alert.duration, alert.ignorePolice)
-end
+	if alert.ignorePolice and player.job.name == 'police' then
+		return
+	end
+
+	local cops = GetPolicePlayers()
+
+	for i, cop in ipairs(cops) do 
+		cop.triggerEvent('outlaw_alert:receiveAlert', alert.label, playerpos, alert.duration, alert.ignorePolice)
+	end
+end 
