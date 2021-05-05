@@ -29,8 +29,8 @@ Il faut que le garage soit accessible par tous les policiers, et que tous les v�
 Sinon, il faut regarder comment fonctionne les ESX Addon_inventory, Datasore, etc... Qui sont censés rajouter des inventaires partagés pour les sociétés : Peut être qu'on peut mettre des véhicules dans des "inventaires" de société ?
 
 - [x] Alerte quand il y a une bagarre ou un coup de feu : https://github.com/TanguyOrtegat/esx_jb_outlawalert
-      - [ ] mettre de jolies blips
-      - [ ] faire en sorte que CarJacking/Street Fight ne spamment pas autant
+- - [ ] mettre de jolies blips
+- - [ ] faire en sorte que CarJacking/Street Fight ne spamment pas autant
 
 - [x] Commissariat plus grand : https://sv.gta5-mods.com/maps/missionrow-extended-interior
 
