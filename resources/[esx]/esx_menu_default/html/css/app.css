@@ -200,6 +200,19 @@
   font-style: oblique;
 }
 
+
+.menu .head_blanchisseur {
+  font-family: SignPainter;  
+  font-size: 59px;
+
+  background-image: url("../img/header/blanchisseur.jpg");
+  text-align      : center;
+  height          : 90px;
+  line-height     : 105px;
+  color : white;
+  font-style: oblique;
+}
+
 .menu .head_Magasin {
   font-family: SignPainter;  
   font-size: 59px;

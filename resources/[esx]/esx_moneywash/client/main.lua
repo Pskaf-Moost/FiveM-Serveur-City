@@ -47,6 +47,7 @@ function OpenWashedMenu(zone)
 		ESX.UI.Menu.CloseAll()
 		
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'wash', {
+			css = 'blanchisseur',
 			title		= _U('washed_menu'),
 			align		= 'top-left',
 			elements	= elements
@@ -95,6 +96,24 @@ AddEventHandler('esx_moneywash:hasExitedMarker', function(zone)
 end)
 
 -- Create Blips
+
+
+
+Citizen.CreateThread(function()
+	local emplacement = {
+	{name="Blanchisserie", id=108, colour=75, x=1086.3, y=-2289.4, z= 29.3},
+	{name="Blanchisserie", id=108, colour=75, x=2711.6, y=2783.2, z= 37.9},
+	}
+    for _, item in pairs(emplacement) do
+      item.blip = AddBlipForCoord(item.x, item.y, item.z)
+      SetBlipSprite(item.blip, item.id)
+      SetBlipColour(item.blip, item.colour)
+      SetBlipAsShortRange(item.blip, true)
+      BeginTextCommandSetBlipName("STRING")
+      AddTextComponentString(item.name)
+      EndTextCommandSetBlipName(item.blip)
+    end
+end)
 
 -- Diplay Markers
 Citizen.CreateThread(function()

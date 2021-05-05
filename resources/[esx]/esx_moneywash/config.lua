@@ -1,6 +1,6 @@
 Config 					= {}
 
-Config.Locale 			= 'en'
+Config.Locale 			= 'fr'
 Config.DrawDistance 	= 10
 
 
@@ -38,7 +38,7 @@ Config.Zones = {
 	
 	['LaundryMat'] = {	
 		Pos = { 
-			{x = 1122.5 , y = -3194.98 , z = -40.60},
+			{x = 2711.6 , y = 2783.2 , z = 36.8}, 
 		},
 		
 		Jobs = {
@@ -49,25 +49,25 @@ Config.Zones = {
 		enableTimer = false, -- Enable ONLY IF you want a timer on the money washing. Keep in mind the Player does not have to stay at the wash for it to actually wash the money.
 		timer = 5 * second, -- Actual Timer for the spot. The * amount will determine if its hours, second, or minutes. which are found above. DEFAULT: 5 * second
 		Size = {x = 1.5, y = 1.5, z = 1.5},
-		Color = {r = 120, g = 120, b = 0},
-		Type = 27,
+		Color = {r =0, g = 255, b = 0},
+		Type = 1,
 	
 	},
 	
 	['Warehouse'] = {
 		Pos = {
-			{x = 1090.84 , y = -2233.43 , z = 31.5}
+			{x = 1086.3 , y = -2289.4 , z = 29.2}
 		},
 		
 		Jobs = {
 			--'any', -- set to 'any' to allow the location for any player regardless of job
 			'any'
 		},
-		TaxRate = 0.95, -- set taxrate per spot. Default is 0.85 or 85% of the dirty you will get back in clean
+		TaxRate = 0.85, -- set taxrate per spot. Default is 0.85 or 85% of the dirty you will get back in clean
 		enableTimer = true, -- Enable ONLY IF you want a timer on the money washing. Keep in mind the Player does not have to stay at the wash for it to actually wash the money.
 		timer = 5 * second, -- Actual Timer for the spot. The * amount will determine if its hours, second, or minutes. which are found above. DEFAULT: 5 * second
 		Size = {x = 1.5, y = 1.5, z = 1.5},
-		Color = {r = 255, g = 120, b = 0},
+		Color = {r = 0, g = 255, b = 0},
 		Type = 1,
 	
 	}
