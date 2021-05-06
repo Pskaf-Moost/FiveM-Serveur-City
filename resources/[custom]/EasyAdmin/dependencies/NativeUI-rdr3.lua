@@ -502,7 +502,7 @@ function AddLongStringForAscii(str)
 	print("ascii")
     local maxbytelength = 99
     for i = 0, GetCharacterCount(str), 99 do
-		Citizen.InvokeNative(0x6C188BE134E074AA, string.sub(str, i, math.min(maxbytelength, GetCharacterCount(str) - i)))
+		AddTextComponentSubstringPlayerName(string.sub(str, i, math.min(maxbytelength, GetCharacterCount(str) - i)))
     end
 end
 
@@ -512,7 +512,7 @@ function AddLongStringForUtf8(str)
     local bytecount = GetByteCount(str)
 
     if bytecount < maxbytelength then
-        Citizen.InvokeNative(0x6C188BE134E074AA,str)
+        AddTextComponentSubstringPlayerName(str)
         return
     end
 
@@ -521,12 +521,12 @@ function AddLongStringForUtf8(str)
     for i = 0, GetCharacterCount(str), 1 do
         local length = i - startIndex
         if GetByteCount(string.sub(str, startIndex, length)) > maxbytelength then
-            Citizen.InvokeNative(0x6C188BE134E074AA,string.sub(str, startIndex, length - 1))
+            AddTextComponentSubstringPlayerName(string.sub(str, startIndex, length - 1))
             i = i - 1
             startIndex = startIndex + (length - 1)
         end
     end
-    Citizen.InvokeNative(0x6C188BE134E074AA,string.sub(str, startIndex, GetCharacterCount(str) - startIndex))
+    AddTextComponentSubstringPlayerName(string.sub(str, startIndex, GetCharacterCount(str) - startIndex))
 end 
 
 function AddLongString(str)
@@ -593,7 +593,7 @@ function UIResText:Draw()
     local Position = self:Position()
     Position.X, Position.Y = FormatXWYH(Position.X, Position.Y)
 
-	Citizen.InvokeNative(0xADA9255D,self.Font)
+	RegisterFontId(self.Font)
     SetTextScale(1.0, self.Scale)
     SetTextColor(self._Colour.R, self._Colour.G, self._Colour.B, self._Colour.A)
 
@@ -609,14 +609,14 @@ function UIResText:Draw()
             SetTextCentre(true)
 		elseif self.Alignment == 2 or self.Alignment == "Right" then
 			SetTextCentre(true)
-			--Citizen.InvokeNative(0x6B3C4650BC8BEE47, true)
-			--Citizen.InvokeNative(0x63145D9C883A1A70, 0, Position.X)
+			--SetTextRightJustify( true)
+			--SetTextWrap( 0, Position.X)
         end
     end
 
     if tonumber(self.WordWrap) then
         if tonumber(self.WordWrap) ~= 0 then
-            Citizen.InvokeNative(0x63145D9C883A1A70,Position.X, Position.X + (tonumber(self.WordWrap) / Resolution.Width))
+            SetTextWrap(Position.X, Position.X + (tonumber(self.WordWrap) / Resolution.Width))
         end
     end
 
@@ -627,7 +627,7 @@ end
 function RenderText(Text, X, Y, Font, Scale, R, G, B, A, Alignment, DropShadow, Outline, WordWrap)
     Text = tostring(Text)
     X, Y = FormatXWYH(X, Y)
-    Citizen.InvokeNative(0xADA9255D,Font or 0)
+    RegisterFontId(Font or 0)
     SetTextScale(1.0, Scale or 0)
     SetTextColor(R or 255, G or 255, B or 255, A or 255)
 
@@ -643,15 +643,15 @@ function RenderText(Text, X, Y, Font, Scale, R, G, B, A, Alignment, DropShadow, 
             SetTextCentre(true)
 		elseif Alignment == 2 or Alignment == "Right" then
 			SetTextCentre(true)
-			--Citizen.InvokeNative(0x6B3C4650BC8BEE47, true)
-			--Citizen.InvokeNative(0x63145D9C883A1A70, 0, X)
+			--SetTextRightJustify( true)
+			--SetTextWrap( 0, X)
         end
     end
 
     if tonumber(WordWrap) then
         if tonumber(WordWrap) ~= 0 then
             WordWrap, _ = FormatXWYH(WordWrap, 0)
-            Citizen.InvokeNative(0x63145D9C883A1A70,WordWrap, X - WordWrap)
+            SetTextWrap(WordWrap, X - WordWrap)
         end
     end
 
@@ -2851,7 +2851,7 @@ function UIMenu:Visible(bool)
 			local W, H = 1920, 1080
 			print(W,H)
 			--SetCursorLocation(W / 2, H / 2)
-			--Citizen.InvokeNative(0xFC695459D4D0E219, W / 2, H / 2)
+			--SetCursorLocation( W / 2, H / 2)
             --SetCursorSprite(1)
         end
 				collectgarbage()
@@ -3159,7 +3159,7 @@ function UIMenu:GoBack()
         if self.Settings.ResetCursorOnOpen then
 			local W, H = 1920, 1080
 			--SetCursorLocation(W / 2, H / 2)
-			Citizen.InvokeNative(0xFC695459D4D0E219, W / 2, H / 2)
+			SetCursorLocation( W / 2, H / 2)
         end
     end
     self.OnMenuClosed(self)
@@ -3202,9 +3202,9 @@ function UIMenu:Draw()
 
 	if self.Settings.ScaleWithSafezone then
 	   -- ScreenDrawPositionBegin(76, 84)
-	   Citizen.InvokeNative(0xB8A850F20A067EB6, 76, 84)
+	   SetScriptGfxAlign(76, 84)
 	   -- ScreenDrawPositionRatio(0, 0, 0, 0)
-	   Citizen.InvokeNative(0xF5A2C681787E579D, 0, 0, 0, 0)
+	   SetScriptGfxAlignParams( 0, 0, 0, 0)
     end
 
     if self.ReDraw then
@@ -3243,7 +3243,7 @@ function UIMenu:Draw()
     if #self.Items == 0 then
         if self.Settings.ScaleWithSafezone then
 			--ScreenDrawPositionEnd()
-			Citizen.InvokeNative(0xE3A3DB414A373DAB)
+			ResetScriptGfxAlign()
         end
         return
     end
@@ -3304,7 +3304,7 @@ function UIMenu:Draw()
 
     if self.Settings.ScaleWithSafezone then
 		--ScreenDrawPositionEnd()
-		Citizen.InvokeNative(0xE3A3DB414A373DAB)
+		ResetScriptGfxAlign()
     end
 end
 

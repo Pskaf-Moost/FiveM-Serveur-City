@@ -17,7 +17,7 @@ Citizen.CreateThread( function()
 		Wait( 0 )
 		
 		local playerPos = GetEntityCoords( GetPlayerPed( -1 ), true )
-		local streetA, streetB = Citizen.InvokeNative( 0x2EB41072B4C1E4C0, playerPos.x, playerPos.y, playerPos.z, Citizen.PointerValueInt(), Citizen.PointerValueInt() )
+		local streetA, streetB = GetStreetNameAtCoord(playerPos.x, playerPos.y, playerPos.z)
 		local street = {}
 		
 		if not ((streetA == lastStreetA or streetA == lastStreetB) and (streetB == lastStreetA or streetB == lastStreetB)) then

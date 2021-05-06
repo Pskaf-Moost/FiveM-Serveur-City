@@ -63,7 +63,7 @@ end
 
 function deletePhone ()
 	if phoneProp ~= 0 then
-		Citizen.InvokeNative(0xAE3CBE5BF394C9C9 , Citizen.PointerValueIntInitialized(phoneProp))
+		DeleteEntity( Citizen.PointerValueIntInitialized(phoneProp))
 		phoneProp = 0
 	end
 end
