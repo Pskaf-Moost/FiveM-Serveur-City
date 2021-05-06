@@ -3,6 +3,10 @@
     "language": "en",
     "on": "On",
     "off": "Off",
+    
+    "utils" : "Utils",
+    "teleporttowaypoint" : "Teleport to waypoint",
+    "teleporttowaypointguide" : "Teleport your character to the current waypoint",
     "spectatingUser": "Spectating ~b~<C>%s</C>.",
     "stoppedSpectating": "Stopped Spectating.",
     "oneday": "1 Day",

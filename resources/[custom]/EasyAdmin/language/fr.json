@@ -4,6 +4,9 @@
     "on": "On",
     "off": "Off",
 
+    "utils" : "Utilitaires",
+    "teleporttowaypoint" : "Se téléporter au marqeur",
+    "teleporttowaypointguide" : "Vous téléporte au marqeur actuelle",
     "spectatingUser": "Vous regardez ~b~<C>%s</C>.",
     "stoppedSpectating": "Vous avez arrêté de regarder un joueur.",
     "oneday": "1 jour",

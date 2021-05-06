@@ -188,11 +188,23 @@ function GenerateMenu() -- this is a big ass function
 	playermanagement = _menuPool:AddSubMenu(mainMenu, GetLocalisedText("playermanagement"),"",true)
 	servermanagement = _menuPool:AddSubMenu(mainMenu, GetLocalisedText("servermanagement"),"",true)
 	settingsMenu = _menuPool:AddSubMenu(mainMenu, GetLocalisedText("settings"),"",true)
+	utilsMenu = _menuPool:AddSubMenu(mainMenu, GetLocalisedText("utils"),"",true)
 
 	mainMenu:SetMenuWidthOffset(menuWidth)	
 	playermanagement:SetMenuWidthOffset(menuWidth)	
 	servermanagement:SetMenuWidthOffset(menuWidth)	
 	settingsMenu:SetMenuWidthOffset(menuWidth)	
+	utilsMenu:SetMenuWidthOffset(menuWidth)	
+	
+
+	if permissions["teleport.player"] then
+		local teleportToWaypointItem = NativeUI.CreateItem(GetLocalisedText("teleporttowaypoint"),GetLocalisedText("teleporttowaypointguide"))
+		utilsMenu:AddItem(teleportToWaypointItem)
+
+		teleportToWaypointItem.Activated = function(ParentMenu,SelectedItem)
+			TriggerServerEvent('EasyAdmin:TeleportToWaypoint', -1)
+		end
+	end
 
 	-- util stuff
 	players = {}

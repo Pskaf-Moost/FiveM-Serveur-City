@@ -733,11 +733,17 @@ Citizen.CreateThread(function()
 		TriggerClientEvent('esx_ambulancejob:revive', playerId)
 	end)
 
+	RegisterServerEvent("EasyAdmin:TeleportToWaypoint")
+	AddEventHandler('EasyAdmin:TeleportToWaypoint', function(source)
+		TriggerClientEvent("esx_admin:tpm", source)
+	end)
+	
+
 	RegisterServerEvent("EasyAdmin:RevivePlayers")
 	AddEventHandler('EasyAdmin:RevivePlayers', function(source)
 		ExecuteCommand('reviveall')
 	end)
-	
+
 	RegisterServerEvent("EasyAdmin:TookScreenshot")
 	
 	RegisterServerEvent("EasyAdmin:TakeScreenshot")
