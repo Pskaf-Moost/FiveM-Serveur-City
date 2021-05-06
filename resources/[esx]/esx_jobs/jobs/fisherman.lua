@@ -90,8 +90,8 @@ Config.Jobs.fisherman = {
 		},
 
 		BoatDeletePoint = {
-			Pos   = {x = 3859.43, y = 4448.83, z = 0.39},
-			Size  = {x = 10.0, y = 10.0, z = 1.0},
+			Pos   = {x = 3860.0, y = 4446.0, z = 0.39},
+			Size  = {x = 20.0, y = 20.0, z = 1.0},
 			Color = {r = 255, g = 0, b = 0},
 			Marker= 1,
 			Blip  = false,
