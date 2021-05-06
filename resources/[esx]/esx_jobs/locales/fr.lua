@@ -104,7 +104,8 @@ Locales['fr'] = {
   ['s_deliver'] = 'appuyez sur ~INPUT_PICKUP~ pour livrer les barquettes de poulet.',
 
   -- Dress Designer
-  ['dd_dress_locker'] = 'vestiaire du couturier',
+  ['dd_workshop'] = 'atelier de couture',
+  ['dd_dress_locker'] = 'vestiaire des couturiers',
   ['dd_wool'] = 'laine',
   ['dd_pickup'] = 'appuyez sur ~INPUT_PICKUP~ pour récupérer de la laine.',
   ['dd_fabric'] = 'tissu',

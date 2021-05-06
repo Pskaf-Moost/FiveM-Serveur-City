@@ -18,12 +18,23 @@ Config.Jobs.tailor = {
 
 	Zones = {
 
+		Workshop = {
+			Pos = {x = 717.5, y = -965.0, z = 29.39},
+			Size = {x = 0.0, y = 0.0, z = 0.0},
+			Color = {r = 204, g = 204, b = 0},
+			Marker = 1,
+			Blip = true,
+			Name = _U('dd_workshop'),
+			Type = '',
+			Hint = '',
+			GPS = {x = 740.80, y = -970.06, z = 23.46}
+		},
 		CloakRoom = {
 			Pos = {x = 706.73, y = -960.90, z = 29.39},
 			Size = {x = 3.0, y = 3.0, z = 1.0},
 			Color = {r = 204, g = 204, b = 0},
 			Marker = 1,
-			Blip = true,
+			Blip = false,
 			Name = _U('dd_dress_locker'),
 			Type = 'cloakroom',
 			Hint = _U('cloak_change'),
@@ -132,7 +143,7 @@ Config.Jobs.tailor = {
 		},
 
 		VehicleDeletePoint = {
-			Pos = {x = 693.79, y = -963.01, z = 22.82},
+			Pos = {x = 745.80, y = -955.06, z = 23.46},
 			Size = {x = 3.0, y = 3.0, z = 1.0},
 			Color = {r = 255, g = 0, b = 0},
 			Marker = 1,
