@@ -6,11 +6,10 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 Citizen.CreateThread(function()
 	while true do
-		Citizen.Wait(1000)
+		Citizen.Wait(500)
 		local timeNow = os.clock()
 
 		for playerId,data in pairs(playersWorking) do
-			Citizen.Wait(10)
 			local xPlayer = ESX.GetPlayerFromId(playerId)
 
 			-- is player still online?
@@ -19,11 +18,6 @@ Citizen.CreateThread(function()
 
 				-- player still within zone limits?
 				if distance <= data.zoneMaxDistance then
-					-- calculate the elapsed time
-					local timeElapsed = timeNow - data.time
-
-					if timeElapsed > data.jobItem[1].time then
-						data.time = os.clock()
 
 						for k,v in ipairs(data.jobItem) do
 							local itemQtty, requiredItemQtty = 0, 0
@@ -57,7 +51,7 @@ Citizen.CreateThread(function()
 									xPlayer.addMoney(v.price)
 								end
 							end
-						end
+						--end
 			
 						if data.jobItem[1].requires ~= 'nothing' then
 							local itemToRemoveQtty = xPlayer.getInventoryItem(data.jobItem[1].requires).count
@@ -77,7 +71,7 @@ Citizen.CreateThread(function()
 end)
 
 RegisterServerEvent('esx_jobs:startWork')
-AddEventHandler('esx_jobs:startWork', function(zoneIndex)
+AddEventHandler('esx_jobs:startWork', function(zoneIndex, zoneKey)
 	if not playersWorking[source] then
 		local xPlayer = ESX.GetPlayerFromId(source)
 
@@ -85,14 +79,13 @@ AddEventHandler('esx_jobs:startWork', function(zoneIndex)
 			local jobObject = Config.Jobs[xPlayer.job.name]
 
 			if jobObject then
-				local jobZone = jobObject.Zones[zoneIndex]
+				local jobZone = jobObject.Zones[zoneKey]
 
 				if jobZone and jobZone.Item then
 					playersWorking[source] = {
 						jobItem = jobZone.Item,
 						zoneCoords = vector3(jobZone.Pos.x, jobZone.Pos.y, jobZone.Pos.z),
-						zoneMaxDistance = jobZone.Size.x,
-						time = os.clock()
+						zoneMaxDistance = jobZone.Size.x
 					}
 				end
 			end
@@ -137,3 +130,21 @@ AddEventHandler('esx_jobs:caution', function(cautionType, cautionAmount, spawnPo
 		end
 	end
 end)
+
+function GetZoneFromName(jobObject, zoneName)
+	for i, zone in jobObject.Zones do
+		if zone.Name == zoneName then
+			return zone
+		end
+	end
+	return nil
+end
+
+function DetailJob(jobName)
+	for jobkey, job in pairs(Config.Jobs) do
+		for zonekey, zone in pairs(job.Zones)do
+			print('%s'):format(jobkey)
+		end
+	end
+
+end

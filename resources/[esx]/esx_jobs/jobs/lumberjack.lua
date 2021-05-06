@@ -63,7 +63,7 @@ Config.Jobs.lumberjack = {
 			Type = 'work',
 			Item = {
 				{
-					name = _U('lj_cutwood'),
+					name = _U('lj_cuttedwood'),
 					db_name = 'cutted_wood',
 					time = 5,
 					max = 20,
@@ -94,7 +94,7 @@ Config.Jobs.lumberjack = {
 					add = 5,
 					remove = 1,
 					requires = 'cutted_wood',
-					requires_name = _U('lj_cutwood'),
+					requires_name = _U('lj_cuttedwood'),
 					drop = 100
 				}
 			},

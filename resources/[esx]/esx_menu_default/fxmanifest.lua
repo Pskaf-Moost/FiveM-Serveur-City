@@ -61,6 +61,7 @@ files {
 	'html/img/header/vehicle.png',
 	'html/img/header/vestiaire.jpg',
 	'html/img/header/lspd.jpg',
+	'html/img/header/butcher.jpg',
 }
 
 dependencies {

@@ -35,7 +35,7 @@ Locales['br'] = {
   ['lj_cutwood_button'] = 'pressione ~INPUT_PICKUP~ para cortar madeira.',
   ['lj_board'] = 'tábua',
   ['lj_planks'] = 'tábua embalada',
-  ['lj_cutwood'] = 'madeira cortada',
+  ['lj_cuttedwood'] = 'madeira cortada',
   ['lj_pick_boards'] = 'pressione ~INPUT_PICKUP~ para recuperar tábuas.',
   ['lj_deliver_button'] = 'pressione ~INPUT_PICKUP~ para entregar as tábuas.',
 

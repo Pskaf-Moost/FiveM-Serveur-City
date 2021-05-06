@@ -20,7 +20,7 @@ local isInMarker = false
 local isInPublicMarker = false
 
 local hintToDisplay = "no hint to display"
-local onDuty = false
+local onDuty = true
 local spawner = 0
 local myPlate = {}
 
@@ -64,12 +64,12 @@ function OpenMenu()
 		}
 	}, function(data, menu)
 		if data.current.value == 'citizen_wear' then
-			onDuty = false
+			--onDuty = false
 			ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
 				TriggerEvent('skinchanger:loadSkin', skin)
 			end)
 		elseif data.current.value == 'job_wear' then
-			onDuty = true
+			--onDuty = true
 			ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
 				if skin.sex == 0 then
 					TriggerEvent('skinchanger:loadClothes', skin, jobSkin.skin_male)
@@ -85,7 +85,7 @@ function OpenMenu()
 	end)
 end
 
-AddEventHandler('esx_jobs:action', function(job, zone)
+AddEventHandler('esx_jobs:action', function(job, zone, zoneKey)
 	menuIsShowed = true
 	if zone.Type == "cloakroom" then
 		OpenMenu()
@@ -97,7 +97,7 @@ AddEventHandler('esx_jobs:action', function(job, zone)
 		if IsPedInAnyVehicle(playerPed, false) then
 			ESX.ShowNotification(_U('foot_work'))
 		else
-			TriggerServerEvent('esx_jobs:startWork', zone.Item)
+			TriggerServerEvent('esx_jobs:startWork', zone.Item, zoneKey)
 		end
 	elseif zone.Type == "vehspawner" then
 		local spawnPoint = nil
@@ -196,7 +196,7 @@ AddEventHandler('esx_jobs:action', function(job, zone)
 
 		hintToDisplay = "no hint to display"
 		hintIsShowed = false
-		TriggerServerEvent('esx_jobs:startWork', zone.Item)
+		TriggerServerEvent('esx_jobs:startWork', zone.Item, zoneKey)
 	end
 	--nextStep(zone.GPS)
 end)
@@ -225,7 +225,7 @@ end)
 RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
 	PlayerData.job = job
-	onDuty = false
+	onDuty = true
 	myPlate = {} -- loosing vehicle caution in case player changes job.
 	spawner = 0
 	deleteBlips()
@@ -470,7 +470,7 @@ Citizen.CreateThread(function()
 
 				if IsControlJustReleased(0, Keys['E']) and not menuIsShowed and isInMarker then
 					if onDuty or zone.Type == "cloakroom" or PlayerData.job.name == "reporter" then
-						TriggerEvent('esx_jobs:action', job, zone)
+						TriggerEvent('esx_jobs:action', job, zone, currentZone)
 					end
 				end
 

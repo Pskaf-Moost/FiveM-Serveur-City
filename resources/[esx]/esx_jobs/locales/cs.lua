@@ -35,7 +35,7 @@ Locales['cs'] = {
   ['lj_cutwood_button'] = 'stiskni ~INPUT_PICKUP~ pro rezani dreva.',
   ['lj_board'] = 'prkna',
   ['lj_planks'] = 'baleni prken',
-  ['lj_cutwood'] = 'rezat drevo',
+  ['lj_cuttedwood'] = 'rezat drevo',
   ['lj_pick_boards'] = 'stiskni ~INPUT_PICKUP~ pro ziskani prken.',
   ['lj_deliver_button'] = 'stiskni ~INPUT_PICKUP~ pro doruceni prken.',
 
