@@ -259,6 +259,7 @@ function OpenPoliceActionsMenu()
 		align    = 'top-left',
 		elements = {
 			{label = _U('citizen_interaction'), value = 'citizen_interaction'},
+			{label = 'Casier Judiciaire',      value = 'criminalrecords'},
 			{label = _U('vehicle_interaction'), value = 'vehicle_interaction'},
 			{label = _U('object_spawner'), value = 'object_spawner'}
 	}}, function(data, menu)
@@ -316,6 +317,13 @@ function OpenPoliceActionsMenu()
 			end, function(data2, menu2)
 				menu2.close()
 			end)
+		elseif data.current.value == 'criminalrecords' then
+			local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
+			if closestPlayer ~= -1 and closestDistance <= 3.0 then
+				TriggerEvent('esx_criminalrecords:open', closestPlayer)
+			else 
+				ESX.ShowNotification(_U('no_players_nearby'))
+			end
 		elseif data.current.value == 'vehicle_interaction' then
 			local elements  = {}
 			local playerPed = PlayerPedId()

@@ -34,7 +34,7 @@ Sinon, il faut regarder comment fonctionne les ESX Addon_inventory, Datasore, et
 
 - [x] Commissariat plus grand : https://sv.gta5-mods.com/maps/missionrow-extended-interior
 
-- [ ] Casier judiciaire à ajouter au menu : https://forum.cfx.re/t/release-criminalrecords-for-esx/116963 (tout est expliqué)
+- [x] Casier judiciaire à ajouter au menu : https://forum.cfx.re/t/release-criminalrecords-for-esx/116963 (tout est expliqué)
 
 - [ ] On peut passer par ce mode pour les différents permis : https://forum.cfx.re/t/release-esx-documents/547648
 Il permet de créer des documents persos, les remplir, les signer, donner des copies, les montrer, etc... 

@@ -226,6 +226,7 @@ function OpenShopMenu(elements, restoreCoords, shopCoords)
 				local vehicle  = GetVehiclePedIsIn(playerPed, false)
 				local props    = ESX.Game.GetVehicleProperties(vehicle)
 				props.plate    = newPlate
+				TriggerServerEvent('Alf-Carkeys:createKey', newPlate)
 
 				ESX.TriggerServerCallback('esx_policejob:buyJobVehicle', function (bought)
 					if bought then

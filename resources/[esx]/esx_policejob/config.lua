@@ -83,42 +83,49 @@ Config.PoliceStations = {
 
 Config.AuthorizedWeapons = {
 	recruit = {
-		{weapon = 'WEAPON_APPISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
+		{weapon = 'WEAPON_PISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
+		{weapon = 'WEAPON_CARBINERIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 0},
+		{weapon = 'WEAPON_PUMPSHOTGUN', components = {2000, 6000, nil}, price = 0},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_STUNGUN', price = 1500},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 80}
+		{weapon = 'WEAPON_STUNGUN', price = 500},
+		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
+		{weapon = 'WEAPON_HEAVYSNIPER', price = 0}
 	},
 
 	officer = {
-		{weapon = 'WEAPON_APPISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
-		{weapon = 'WEAPON_ADVANCEDRIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 50000},
+		{weapon = 'WEAPON_PISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
+		{weapon = 'WEAPON_CARBINERIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 0},
+		{weapon = 'WEAPON_PUMPSHOTGUN', components = {2000, 6000, nil}, price = 0},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
 		{weapon = 'WEAPON_STUNGUN', price = 500},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0}
+		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
+		{weapon = 'WEAPON_HEAVYSNIPER', price = 0}
 	},
 
 	sergeant = {
-		{weapon = 'WEAPON_APPISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
-		{weapon = 'WEAPON_ADVANCEDRIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 50000},
-		{weapon = 'WEAPON_PUMPSHOTGUN', components = {2000, 6000, nil}, price = 70000},
+		{weapon = 'WEAPON_PISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
+		{weapon = 'WEAPON_CARBINERIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 0},
+		{weapon = 'WEAPON_PUMPSHOTGUN', components = {2000, 6000, nil}, price = 0},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
 		{weapon = 'WEAPON_STUNGUN', price = 500},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0}
+		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
+		{weapon = 'WEAPON_HEAVYSNIPER', price = 0}
 	},
 
 	lieutenant = {
 		{weapon = 'WEAPON_PISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
-		{weapon = 'WEAPON_CARBINERIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 50000},
-		{weapon = 'WEAPON_PUMPSHOTGUN', components = {2000, 6000, nil}, price = 70000},
+		{weapon = 'WEAPON_CARBINERIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 0},
+		{weapon = 'WEAPON_PUMPSHOTGUN', components = {2000, 6000, nil}, price = 0},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
 		{weapon = 'WEAPON_STUNGUN', price = 500},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0}
+		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
+		{weapon = 'WEAPON_HEAVYSNIPER', price = 0}
 	},
 
 	boss = {
 		{weapon = 'WEAPON_PISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
-		{weapon = 'WEAPON_CARBINERIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 50000},
-		{weapon = 'WEAPON_PUMPSHOTGUN', components = {2000, 6000, nil}, price = 70000},
+		{weapon = 'WEAPON_CARBINERIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 0},
+		{weapon = 'WEAPON_PUMPSHOTGUN', components = {2000, 6000, nil}, price = 0},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
 		{weapon = 'WEAPON_STUNGUN', price = 500},
 		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
@@ -129,61 +136,66 @@ Config.AuthorizedWeapons = {
 Config.AuthorizedVehicles = {
 	car = {
 		recruit = {
-		{model = 'police3', price = 20000},
-			{model = 'riot', price = 70000},
-			{model = 'policet', price = 18500},
-			{model = 'policeb', price = 30500},
-			{model = 'fbi2', price = 60000},
-			{model = 'fbi', price = 60000}
+		{model = 'police3', price = 0},
+			{model = 'riot', price = 0},
+			{model = 'policet', price = 0},
+			{model = 'policeb', price = 0},
+			{model = 'fbi2', price = 0},
+			{model = 'fbi', price = 0},
+			{model = 'police4', price = 0}
 		},
 
 		officer = {
-			{model = 'police3', price = 20000},
-			{model = 'riot', price = 70000},
-			{model = 'policet', price = 18500},
-			{model = 'policeb', price = 30500},
-			{model = 'fbi2', price = 60000},
-			{model = 'fbi', price = 60000}
+			{model = 'police3', price = 0},
+			{model = 'riot', price = 0},
+			{model = 'policet', price = 0},
+			{model = 'policeb', price = 0},
+			{model = 'fbi2', price = 0},
+			{model = 'fbi', price = 0},
+			{model = 'police4', price = 0}
 		},
 
 		sergeant = {
-			{model = 'police3', price = 20000},
-			{model = 'riot', price = 70000},
-			{model = 'policet', price = 18500},
-			{model = 'policeb', price = 30500},
-			{model = 'fbi2', price = 60000},
-			{model = 'fbi', price = 60000}
+			{model = 'police3', price = 0},
+			{model = 'riot', price = 0},
+			{model = 'policet', price = 0},
+			{model = 'policeb', price = 0},
+			{model = 'fbi2', price = 0},
+			{model = 'fbi', price = 0},
+			{model = 'police4', price = 0}
 		},
 
 		lieutenant = {
-			{model = 'police3', price = 20000},
-			{model = 'riot', price = 70000},
-			{model = 'policet', price = 18500},
-			{model = 'policeb', price = 30500},
-			{model = 'fbi2', price = 60000},
-			{model = 'fbi', price = 60000}
+			{model = 'police3', price = 0},
+			{model = 'riot', price = 0},
+			{model = 'policet', price = 0},
+			{model = 'policeb', price = 0},
+			{model = 'fbi2', price = 0},
+			{model = 'fbi', price = 0},
+			{model = 'police4', price = 0}
 		},
 
 		boss = {
-		{model = 'police3', price = 20000},
-			{model = 'riot', price = 70000},
-			{model = 'policet', price = 18500},
-			{model = 'policeb', price = 30500},
-			{model = 'fbi2', price = 60000},
-			{model = 'fbi', price = 60000}
+		{model = 'police3', price = 0},
+			{model = 'riot', price = 0},
+			{model = 'policet', price = 0},
+			{model = 'policeb', price = 0},
+			{model = 'fbi2', price = 0},
+			{model = 'fbi', price = 0},
+			{model = 'police4', price = 0}
 		
 		}
 	},
 
 	helicopter = {
-		recruit = {},
+		recruit = {{model = 'polmav', props = {modLivery = 0}, price = 100000}},
 
-		officer = {},
+		officer = {{model = 'polmav', props = {modLivery = 0}, price = 100000}},
 
-		sergeant = {},
+		sergeant = {{model = 'polmav', props = {modLivery = 0}, price = 100000}},
 
 		lieutenant = {
-			{model = 'polmav', props = {modLivery = 0}, price = 200000}
+			{model = 'polmav', props = {modLivery = 0}, price = 100000}
 		},
 
 		boss = {
