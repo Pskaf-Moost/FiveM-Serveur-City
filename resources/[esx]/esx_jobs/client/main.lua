@@ -119,7 +119,6 @@ AddEventHandler('esx_jobs:action', function(job, zone, zoneKey)
 				end
 			end
 		end
-
 		if ESX.Game.IsSpawnPointClear(spawnPoint.Pos, 5.0) then
 			spawnVehicle(spawnPoint, vehicle, zone.Caution)
 		else
@@ -262,7 +261,6 @@ function refreshBlips()
 						else
 							_Pos = zoneValues.Pos
 						end
-						print(_Pos.x)
 						local blip = AddBlipForCoord(_Pos.x, _Pos.y, _Pos.z)
 						SetBlipSprite  (blip, jobValues.BlipInfos.Sprite)
 						SetBlipDisplay (blip, 4)

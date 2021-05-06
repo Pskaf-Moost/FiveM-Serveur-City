@@ -73,7 +73,7 @@ Config.Jobs.fisherman = {
 			Type  = 'vehspawner',
 			Spawner = 2,
 			Hint  = _U('fm_spawnboat'),
-			Caution = 0,
+			Caution = 2000,
 			GPS = {x = 4435.21, y = 4829.60, z = 0.34}
 		},
 
@@ -99,7 +99,7 @@ Config.Jobs.fisherman = {
 			Type  = 'vehdelete',
 			Hint  = _U('fm_boat_return_button'),
 			Spawner = 2,
-			Caution = 0,
+			Caution = 2000,
 			GPS = {x = -1012.64, y = -1354.62, z = 5.54},
 			Teleport = {x = 3867.44, y = 4463.62, z = 1.72}
 		},
@@ -146,10 +146,9 @@ Config.Jobs.fisherman = {
 		},
 
 		Delivery = {
-			Pos   = {x = -1012.64, y = -1354.62, z = 5.54},
+			Pos   = {x = -1025.0, y = -1351.0, z = 4.54},
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
-			Color = {r = 204, g = 204, b = 0},
 			Marker= 1,
 			Blip  = true,
 			Name  = _U('delivery_point'),
