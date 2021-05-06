@@ -104,6 +104,7 @@ function ReturnVehicleProvider()
 			})
 		end
 
+		xPlayer.showNotification('selling')
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'return_provider_menu', {
 			css='cardealer',
 			title    = _U('return_provider_menu'),
