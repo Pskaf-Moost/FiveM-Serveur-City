@@ -1,6 +1,7 @@
 local CurrentAction, CurrentActionMsg, CurrentActionData = nil, '', {}
 local HasAlreadyEnteredMarker, LastHospital, LastPart, LastPartNum
 local isBusy, deadPlayers, deadPlayerBlips, isOnDuty = false, {}, {}, false
+local playerJob = ''
 isInShopMenu = false
 
 function OpenAmbulanceActionsMenu()
@@ -485,6 +486,8 @@ end)
 
 RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
+
+	playerJob = job 
 	if isOnDuty and job ~= 'ambulance' then
 		for playerId,v in pairs(deadPlayerBlips) do
 			RemoveBlip(v)
@@ -499,7 +502,7 @@ RegisterNetEvent('esx_ambulancejob:setDeadPlayers')
 AddEventHandler('esx_ambulancejob:setDeadPlayers', function(_deadPlayers)
 	deadPlayers = _deadPlayers
 
-	if isOnDuty then
+	if isOnDuty or playerJob == 'police' then
 		for playerId,v in pairs(deadPlayerBlips) do
 			RemoveBlip(v)
 			deadPlayerBlips[playerId] = nil
