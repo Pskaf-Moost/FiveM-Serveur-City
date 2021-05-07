@@ -58,6 +58,9 @@ Locales['fr'] = {
   ['confirm_no'] = 'non',
   ['confirm_yes'] = 'oui',
   -- Service
+  ['service_interaction'] = 'Interaction de service',  
+  ['service_start'] = 'Commencer le service',  
+  ['service_stop'] = 'Mettre fin au service',  
   ['service_max'] = 'vous ne pouvez pas entrer en service, officiers en service: %s/%s',
   ['service_not'] = 'vous n\'êtes pas en service! Vous devez d\'abord enfiler votre tenue.',
   ['service_anonunce'] = 'prise de service',
@@ -69,7 +72,7 @@ Locales['fr'] = {
   ['citizen_interaction'] = 'interaction citoyen',
   ['vehicle_interaction'] = 'interaction véhicule',
   ['object_spawner'] = 'placer objets',
-
+  ['criminalrecords'] = 'Casier Criminel',
   ['id_card'] = 'carte d\'identité',
   ['search'] = 'fouiller',
   ['handcuff'] = 'menotter / Démenotter',

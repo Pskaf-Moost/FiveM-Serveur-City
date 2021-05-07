@@ -100,82 +100,12 @@ function OpenCloakroomMenu()
 			end
 
 			if Config.EnableESXService then
-				ESX.TriggerServerCallback('esx_service:isInService', function(isInService)
-					if isInService then
-						playerInService = false
-
-						local notification = {
-							title    = _U('service_anonunce'),
-							subject  = '',
-							msg      = _U('service_out_announce', GetPlayerName(PlayerId())),
-							iconType = 1
-						}
-
-						TriggerServerEvent('esx_service:notifyAllInService', notification, 'police')
-
-						TriggerServerEvent('esx_service:disableService', 'police')
-						TriggerEvent('esx_policejob:updateBlip')
-						ESX.ShowNotification(_U('service_out'))
-					end
-				end, 'police')
+				StopService()
 			end
 		end
 
 		if Config.EnableESXService and data.current.value ~= 'citizen_wear' then
-			local awaitService
-
-			ESX.TriggerServerCallback('esx_service:isInService', function(isInService)
-				if not isInService then
-
-					if Config.MaxInService == -1 then
-						ESX.TriggerServerCallback('esx_service:enableService', function(canTakeService, maxInService, inServiceCount)
-							if not canTakeService then
-								ESX.ShowNotification(_U('service_max', inServiceCount, maxInService))
-							else
-								awaitService = true
-								playerInService = true
-
-								local notification = {
-									title    = _U('service_anonunce'),
-									subject  = '',
-									msg      = _U('service_in_announce', GetPlayerName(PlayerId())),
-									iconType = 1
-								}
-
-								TriggerServerEvent('esx_service:notifyAllInService', notification, 'police')
-								TriggerEvent('esx_policejob:updateBlip')
-								ESX.ShowNotification(_U('service_in'))
-							end
-						end, 'police')
-					else 
-						awaitService = true
-						playerInService = true
-
-						local notification = {
-							title    = _U('service_anonunce'),
-							subject  = '',
-							msg      = _U('service_in_announce', GetPlayerName(PlayerId())),
-							iconType = 1
-						}
-
-						TriggerServerEvent('esx_service:notifyAllInService', notification, 'police')
-						TriggerEvent('esx_policejob:updateBlip')
-						ESX.ShowNotification(_U('service_in'))
-					end
-
-				else
-					awaitService = true
-				end
-			end, 'police')
-
-			while awaitService == nil do
-				Citizen.Wait(5)
-			end
-
-			-- if we couldn't enter service don't let the player get changed
-			if not awaitService then
-				return
-			end
+			StartService()
 		end
 
 		if data.current.uniform then
@@ -207,6 +137,75 @@ function OpenCloakroomMenu()
 		CurrentActionData = {}
 	end)
 end
+
+function StopService()
+	ESX.TriggerServerCallback('esx_service:isInService', function(isInService)
+		if isInService or (not Config.EnableMaxInService and playerInService) then
+			playerInService = false
+
+			local notification = {
+				title    = _U('service_anonunce'),
+				subject  = '',
+				msg      = _U('service_out_announce', GetPlayerName(PlayerId())),
+				iconType = 1
+			}
+
+			TriggerServerEvent('esx_service:notifyAllInService', notification, 'police')
+
+			TriggerServerEvent('esx_service:disableService', 'police')
+			TriggerEvent('esx_policejob:updateBlip')
+			ESX.ShowNotification(_U('service_out'))
+		end
+	end, 'police')
+end
+
+function StartService()
+	local awaitService
+
+	ESX.TriggerServerCallback('esx_service:isInService', function(isInService)
+		if not isInService then
+			if Config.EnableMaxInService and Config.MaxInService == -1 then
+				ESX.TriggerServerCallback('esx_service:enableService', function(canTakeService, maxInService, inServiceCount)
+					if not canTakeService then
+						ESX.ShowNotification(_U('service_max', inServiceCount, maxInService))
+					else
+						awaitService = true
+						playerInService = true
+
+						local notification = {
+							title    = _U('service_anonunce'),
+							subject  = '',
+							msg      = _U('service_in_announce', GetPlayerName(PlayerId())),
+							iconType = 1
+						}
+
+						TriggerServerEvent('esx_service:notifyAllInService', notification, 'police')
+						TriggerEvent('esx_policejob:updateBlip')
+						ESX.ShowNotification(_U('service_in'))
+					end
+				end, 'police')
+			else 
+				awaitService = true
+				playerInService = true
+
+				local notification = {
+					title    = _U('service_anonunce'),
+					subject  = '',
+					msg      = _U('service_in_announce', GetPlayerName(PlayerId())),
+					iconType = 1
+				}
+
+				TriggerServerEvent('esx_service:notifyAllInService', notification, 'police')
+				TriggerEvent('esx_policejob:updateBlip')
+				ESX.ShowNotification(_U('service_in'))
+			end
+
+		else
+			awaitService = true
+		end
+	end, 'police')
+end
+
 
 function OpenArmoryMenu(station)
 	local elements = {
@@ -253,16 +252,22 @@ end
 function OpenPoliceActionsMenu()
 	ESX.UI.Menu.CloseAll()
 
+	if Config.EnableESXService and not playerInService then
+		OpenServiceMenu()
+		return
+	end
+
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'police_actions', {
 		css      = 'lspd',
 		title    = 'Police',
 		align    = 'top-left',
 		elements = {
 			{label = _U('citizen_interaction'), value = 'citizen_interaction'},
-			{label = 'Casier Judiciaire',      value = 'criminalrecords'},
 			{label = _U('vehicle_interaction'), value = 'vehicle_interaction'},
+			{label = _U('service_interaction'), value = 'service_interaction'},
 			{label = _U('object_spawner'), value = 'object_spawner'}
-	}}, function(data, menu)
+		}
+	}, function(data, menu)
 		if data.current.value == 'citizen_interaction' then
 			local elements = {
 				{label = _U('id_card'), value = 'identity_card'},
@@ -271,6 +276,7 @@ function OpenPoliceActionsMenu()
 				{label = _U('drag'), value = 'drag'},
 				{label = _U('put_in_vehicle'), value = 'put_in_vehicle'},
 				{label = _U('out_the_vehicle'), value = 'out_the_vehicle'},
+				{label = _U('criminalrecords'), value = 'criminalrecords'},
 				{label = _U('fine'), value = 'fine'},
 				{label = _U('unpaid_bills'), value = 'unpaid_bills'},
 				{label = _U('jail'),value = 'jail'}
@@ -310,6 +316,8 @@ function OpenPoliceActionsMenu()
 						ShowPlayerLicense(closestPlayer)
 					elseif action == 'unpaid_bills' then
 						OpenUnpaidBillsMenu(closestPlayer)
+					elseif action == 'criminalrecords' then
+						OpenCriminalRecordsMenu(closestPlayer, closestDistance)
 					end
 				else
 					ESX.ShowNotification(_U('no_players_nearby'))
@@ -317,13 +325,6 @@ function OpenPoliceActionsMenu()
 			end, function(data2, menu2)
 				menu2.close()
 			end)
-		elseif data.current.value == 'criminalrecords' then
-			local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
-			if closestPlayer ~= -1 and closestDistance <= 3.0 then
-				TriggerEvent('esx_criminalrecords:open', closestPlayer)
-			else 
-				ESX.ShowNotification(_U('no_players_nearby'))
-			end
 		elseif data.current.value == 'vehicle_interaction' then
 			local elements  = {}
 			local playerPed = PlayerPedId()
@@ -402,6 +403,8 @@ function OpenPoliceActionsMenu()
 			end, function(data2, menu2)
 				menu2.close()
 			end)
+		elseif data.current.value == 'service_interaction' then
+			OpenServiceMenu()
 		elseif data.current.value == 'object_spawner' then
 			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'citizen_interaction', {
 				css      = 'lspd',
@@ -429,6 +432,14 @@ function OpenPoliceActionsMenu()
 	end, function(data, menu)
 		menu.close()
 	end)
+end
+
+function OpenCriminalRecordsMenu(closestPlayer, closestDistance)
+	if closestPlayer ~= -1 and closestDistance <= 3.0 then
+		TriggerEvent('esx_criminalrecords:open', closestPlayer)
+	else 
+		ESX.ShowNotification(_U('no_players_nearby'))
+	end
 end
 
 function OpenIdentityCardMenu(player)
@@ -976,6 +987,36 @@ function OpenPutStocksMenu()
 	end)
 end
 
+function OpenServiceMenu()
+	local elements
+
+	if playerInService then
+		elements = {{label = _U('service_stop'),value = 'service_stop'}}
+	else
+		elements = {{label = _U('service_start'), value = 'service_start'}}
+	end
+	
+	ESX.UI.Menu.CloseAll()
+
+	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'service_menu', {
+		css      = 'lspd',
+		title    = _U('service_interaction'),
+		align    = 'top-left',
+		elements = elements
+	}, function(data, menu)
+		if data.current.value == 'service_start' then
+			StartService()
+		else
+			StopService()
+		end
+
+		menu.close()	
+	end, function(data, menu)
+		menu.close()
+	end)
+
+end
+
 RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
 	ESX.PlayerData.job = job
@@ -1495,13 +1536,9 @@ Citizen.CreateThread(function()
 			end
 		end -- CurrentAction end
 
-		if IsControlJustReleased(0, 167) and not isDead and ESX.PlayerData.job and ESX.PlayerData.job.name == 'police' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'police_actions') then
-			if not Config.EnableESXService then
-				OpenPoliceActionsMenu()
-			elseif playerInService then
-				OpenPoliceActionsMenu()
-			else
-				ESX.ShowNotification(_U('service_not'))
+		if IsControlJustReleased(0, 167) and not isDead and ESX.PlayerData.job and ESX.PlayerData.job.name == 'police' then
+			if not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'police_actions')then		
+				OpenPoliceActionsMenu()			
 			end
 		end
 

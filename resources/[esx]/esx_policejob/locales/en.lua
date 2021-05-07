@@ -54,6 +54,9 @@ Locales['en'] = {
   ['confirm_no'] = 'no',
   ['confirm_yes'] = 'yes',
   -- Service
+  ['service_interaction'] = 'Service interaction',  
+  ['service_start'] = 'Start service',  
+  ['service_stop'] = 'Stop service',  
   ['service_max'] = 'you cannot enter service, max officers in service: %s/%s',
   ['service_not'] = 'you have not entered service! You\'ll have to get changed first.',
   ['service_anonunce'] = 'service information',
@@ -65,6 +68,7 @@ Locales['en'] = {
   ['citizen_interaction'] = 'citizen Interaction',
   ['vehicle_interaction'] = 'vehicle Interaction',
   ['object_spawner'] = 'object Spawner',
+  ['criminalrecords'] = 'Criminal Records',
 
   ['id_card'] = 'ID Card',
   ['search'] = 'search',
