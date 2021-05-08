@@ -120,13 +120,15 @@ Citizen.CreateThread(function()
 			local distance = #(coords - Config.JailSpawnLocation)
 
 			if distance > 150 then
-				DoScreenFadeOut(500)
-				Citizen.Wait(500)
-				ESX.Game.Teleport(PlayerPedId(), Config.JailSpawnLocation)
-				TriggerServerEvent('esx_extendedjail:webhook', GetPlayerServerId(PlayerId()))
-				Citizen.Wait(1000)
-				DoScreenFadeIn(500)
-				ESX.ShowNotification(_U('outside_jail'))
+			
+				ESX.ShowNotification(_U('alarm_fire'))
+				TriggerServerEvent('esx_extendedjail:alarm_server', true, true)
+				TriggerServerEvent('esx_extendedjail:breakingOut', playerped)
+				
+				
+				
+				
+				
 			end
 		end
 	end
@@ -319,14 +321,14 @@ function PlayerList()
 
 
 				ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'esx_extendedjail', {
-					title    = 'Vankilan Tietokanta', align    = 'bottom-right',
+					title    = 'Ordinateur de la prison', align    = 'bottom-right',
 					elements = elements
 				}, function(data, menu)
 					ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'esx_extendedjail_confirm', {
-						title    = 'Oletko varma?', align    = 'bottom-right',
+						title    = 'Libérez ce joueur ?', align    = 'bottom-right',
 						elements = {
-							{label = ('no'),  value = 'no'},
-							{label = ('yes'), value = 'yes'}
+							{label = ('Non'),  value = 'no'},
+							{label = ('Oui'), value = 'yes'}
 						}
 					}, function(data2, menu2)
 						menu2.close()

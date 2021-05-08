@@ -78,6 +78,31 @@ AddEventHandler( "esx_extendedjail:unjail_server", function(playerid_2)
 	UnJailPlayer(playerid_2)
 end)
 
+RegisterNetEvent("esx_extendedjail:breakingOut")
+AddEventHandler( "esx_extendedjail:breakingOut", function(playerid)
+	BreakingOut(playerid)
+end)
+
+function BreakingOut(playerId)
+	local xPlayerTarget = ESX.GetPlayerFromId(playerId)
+	local jailinfo = {prison = 0, pjail = 0}
+
+	if PlayerArrested[playerId] then
+		MySQL.Async.execute('UPDATE users SET arrested_time = @arrested_time WHERE identifier = @identifier', {		
+			['@identifier'] = xPlayerTarget.identifier,
+			['@arrested_time'] = json.encode(jailinfo)
+		}, function(rowsChanged)
+			for playerId,player in pairs(PlayerArrested) do
+				if player.JailType == 'prison' then PlayersinJail = PlayersinJail - 1 end
+			end
+			PlayerArrested[playerId] = nil
+		end)
+	else
+		(ESX.GetPlayerFromId(source.playerId)).showNotification(_U('tried_unjail_error'))
+	end
+end
+
+
 RegisterNetEvent("esx_extendedjail:alarm_server")
 AddEventHandler( "esx_extendedjail:alarm_server", function(data, notification)
 	TriggerClientEvent('esx_extendedjail:StartAlarm', -1, data)
