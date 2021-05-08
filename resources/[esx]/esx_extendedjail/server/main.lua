@@ -118,32 +118,32 @@ end)
 
 function JailPlayer(playerId, time, data, source)
 	local xPlayerTarget = ESX.GetPlayerFromId(playerId)
-		if not PlayerArrested[playerId] then
+	if not PlayerArrested[playerId] then
 
-			if data.jail == 'prison' then
-				information2 = {prison = time, pjail = 0}
-			elseif data.jail == 'pjail' then
-				information2 = {pjail = time, prison = 0}
+		if data.jail == 'prison' then
+			information2 = {prison = time, pjail = 0}
+		elseif data.jail == 'pjail' then
+			information2 = {pjail = time, prison = 0}
+		end
+
+		MySQL.Async.execute('UPDATE users SET arrested_time = @arrested_time WHERE identifier = @identifier', {		
+			['@identifier'] = xPlayerTarget.identifier,
+			['@arrested_time'] = json.encode(information2)
+		}, function(rowsChanged)
+
+			xPlayerTarget.triggerEvent('esx_extendedjail:jailplayer', time, data)
+			PlayerArrested[playerId] = {TimeLeft = (time * 60), identifier = xPlayerTarget.getIdentifier(), realname = xPlayerTarget.name, JailType = data.jail}
+
+			for playerId,player in pairs(PlayerArrested) do
+				if player.JailType == 'prison' then PlayersinJail = PlayersinJail + 1 end
 			end
 
-			MySQL.Async.execute('UPDATE users SET arrested_time = @arrested_time WHERE identifier = @identifier', {		
-				['@identifier'] = xPlayerTarget.identifier,
-				['@arrested_time'] = json.encode(information2)
-			}, function(rowsChanged)
-
-				xPlayerTarget.triggerEvent('esx_extendedjail:jailplayer', time, data)
-				PlayerArrested[playerId] = {TimeLeft = (time * 60), identifier = xPlayerTarget.getIdentifier(), realname = xPlayerTarget.name, JailType = data.jail}
-
-				for playerId,player in pairs(PlayerArrested) do
-					if player.JailType == 'prison' then PlayersinJail = PlayersinJail + 1 end
-				end
-
-				if Config.IsWebhookEnabled then Webhook("2061822", _U('alert'), _U('player_jailed', GetPlayerName(playerId), xPlayerTarget.getIdentifier())) end
-				--print(PlayersinJail)
-			end)
-		else
-			(ESX.GetPlayerFromId(source.playerId)).showNotification(_U('already_jailed_error'))
-		end
+			if Config.IsWebhookEnabled then Webhook("2061822", _U('alert'), _U('player_jailed', GetPlayerName(playerId), xPlayerTarget.getIdentifier())) end
+			--print(PlayersinJail)
+		end)
+	else
+		xPlayerTarget.showNotification(_U('already_jailed_error'))
+	end
 end
 
 function UnJailPlayer(playerId, source)

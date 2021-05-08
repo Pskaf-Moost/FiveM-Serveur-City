@@ -1,5 +1,5 @@
 Locales ['fr'] = {
-  ['jailed'] = 'Vous avez été emprisonné \nTemps: %s',
+  ['jailed'] = 'Vous avez été emprisonné \nTemps: %s minutes',
   ['pjailed'] = 'You have been jailed. \nTime: %s',
   ['already_jailed'] = 'Vous êtes toujours emprisonné',
   ['already_pjailed'] = 'You are still jailed let`s continue here!',
@@ -17,15 +17,15 @@ Locales ['fr'] = {
   ['no_players'] = 'Il n\'y a pas de prisonnier dans la prison !',
   ['no_correct_item'] = 'Vous n\'avez pas l\'objet nécessaire pour hacker.',
   ['trying_to_computer'] = 'En train de pirater l\'ordinateur...',
-  ['alarm_fire'] = 'L\'alarme a été déclenché !',
+  ['alarm_fire'] = 'L\'alarme a été déclenchée !',
   ['blip_alarm'] = 'Prison | Alarme',
   ['alarm'] = 'Alarme',
   ['alarm_place'] = 'Prison',
-  ['alarm_reason'] = 'Quelqu\'un essaie de d\'échapper',
+  ['alarm_reason'] = 'Quelqu\'un essaie de s\'échapper',
   ['tried_unjail_error'] = 'Erreur sur la personne choisie.',
-  ['already_jailed_error'] = 'Ce citoyen est déja en prison.',
+  ['already_jailed_error'] = 'Ce citoyen est déjà en prison.',
   ['already_started_error'] = 'L\'évasion est déjà en cours.',
   ['failed_hacking_error'] = 'Le piratage a échoué !',
   ['error'] = 'Erreur. Assurez vous de rentrer la bonne commande !',
-  ['error_noplayer'] = 'Erreur, ce citoyen n\'existe pas...'
+  ['error_noplayer'] = 'Erreur, ce citoyen n\'éxiste pas...'
 }
