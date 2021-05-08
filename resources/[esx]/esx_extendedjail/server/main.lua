@@ -84,10 +84,10 @@ AddEventHandler( "esx_extendedjail:breakingOut", function(playerid)
 end)
 
 function BreakingOut(playerId)
-	local xPlayerTarget = ESX.GetPlayerFromId(playerId)
 	local jailinfo = {prison = 0, pjail = 0}
-
+	local xPlayerTarget = ESX.GetPlayerFromId(playerId)
 	if PlayerArrested[playerId] then
+	
 		MySQL.Async.execute('UPDATE users SET arrested_time = @arrested_time WHERE identifier = @identifier', {		
 			['@identifier'] = xPlayerTarget.identifier,
 			['@arrested_time'] = json.encode(jailinfo)
@@ -96,9 +96,7 @@ function BreakingOut(playerId)
 				if player.JailType == 'prison' then PlayersinJail = PlayersinJail - 1 end
 			end
 			PlayerArrested[playerId] = nil
-		end)
-	else
-		(ESX.GetPlayerFromId(source.playerId)).showNotification(_U('tried_unjail_error'))
+		end)	
 	end
 end
 
