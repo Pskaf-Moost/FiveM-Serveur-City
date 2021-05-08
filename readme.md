@@ -46,7 +46,7 @@ Pour avoir le permis de port d'armes, il faudra demander à un membre du LSPD de
 
 
 
-- [ ] La prise de service doit être faite par le menu police également. Rajouter un menu "Service" en dessous de "Interaction citoyen, interaction véhicule"...
+- [x] La prise de service doit être faite par le menu police également. Rajouter un menu "Service" en dessous de "Interaction citoyen, interaction véhicule"...
 Le menu service doit comprendre "Prise de service, fin de service" et doit envoyer une notification à tous les policiers pour leur dire que X player vient de prendre son service.
 La prise de service est faite lorsque le policier enfile sa tenue pour le moment, lorsqu'on active le esx_service. On peut utiliser cette partie du code pour activer le service, et reprendre les notifications de Stasiekdrugsv2 pour avertir toute la police.
 
