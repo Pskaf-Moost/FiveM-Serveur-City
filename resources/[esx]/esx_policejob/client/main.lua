@@ -279,7 +279,9 @@ function OpenPoliceActionsMenu()
 				{label = _U('criminalrecords'), value = 'criminalrecords'},
 				{label = _U('fine'), value = 'fine'},
 				{label = _U('unpaid_bills'), value = 'unpaid_bills'},
-				{label = _U('jail'),value = 'jail'}
+				{label = _U('Jail'),            value = 'jail_menu'},
+				{label = _U('Pjail'), value = 'pjail_menu'}
+				
 			}
 
 			if Config.EnableLicenses then
@@ -295,9 +297,15 @@ function OpenPoliceActionsMenu()
 				local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
 				if closestPlayer ~= -1 and closestDistance <= 3.0 then
 					local action = data2.current.value
+					
+					
 
 					if action == 'identity_card' then
-						OpenIdentityCardMenu(closestPlayer)
+						OpenIdentityCardMenu(closestPlayer)					
+					elseif action == 'jail_menu' then
+						exports.esx_extendedjail:OpenJailMenu('prison')
+					elseif action == 'pjail_menu' then
+						exports.esx_extendedjail:OpenJailMenu('pjail')
 					elseif action == 'search' then
 						OpenBodySearchMenu(closestPlayer)
 					elseif action == 'handcuff' then
