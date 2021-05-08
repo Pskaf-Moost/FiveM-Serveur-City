@@ -12,6 +12,8 @@ AddEventHandler("esx:onPlayerSpawn", function()
     TriggerServerEvent("esx_extendedjail:suggestions")
 end)
 
+
+
 RegisterNetEvent("esx_extendedjail:suggestions")
 AddEventHandler("esx_extendedjail:suggestions", function()
 	TriggerEvent('chat:addSuggestion', '/jail', 'Jail player', {{ name="ID", help="Player ID"}, { name="Time", help="Time in minutes"}})
@@ -115,20 +117,19 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(5000)
 		if DistanceChecker then
-			local playerped = PlayerPedId()
-			local coords = GetEntityCoords(playerped)
+			local playerPed = GetPlayerPed(-1)
+			local playerId = GetPlayerServerId(xPlayer)
+			local coords = GetEntityCoords(playerPed)
 			local distance = #(coords - Config.JailSpawnLocation)
 
 			if distance > 150 then
 			
 				ESX.ShowNotification(_U('alarm_fire'))
 				TriggerServerEvent('esx_extendedjail:alarm_server', true, true)
-				TriggerServerEvent('esx_extendedjail:breakingOut', playerped)
-				
-				
-				
-				
-				
+				TriggerServerEvent('esx_extendedjail:breakingOut', playerId)
+				timer = false
+				DistanceChecker = false
+							
 			end
 		end
 	end
