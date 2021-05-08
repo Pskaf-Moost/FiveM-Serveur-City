@@ -44,7 +44,8 @@ Citizen.CreateThread( function()
 		
 		if compass.followGameplayCam then
 			-- Converts [-180, 180] to [0, 360] where E = 90 and W = 270
-			local camRot = GetGameplayCamRot(0)
+			--local camRot = GetGameplayCamRot(0)
+			local camRot = Citizen.InvokeNative(0x837765A25378F0BB, 0, Citizen.ResultAsVector())
 			playerHeadingDegrees = 360.0 - ((camRot.z + 360.0) % 360.0)
 		else
 			-- Converts E = 270 to E = 90
