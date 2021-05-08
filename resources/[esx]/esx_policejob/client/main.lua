@@ -279,8 +279,7 @@ function OpenPoliceActionsMenu()
 				{label = _U('criminalrecords'), value = 'criminalrecords'},
 				{label = _U('fine'), value = 'fine'},
 				{label = _U('unpaid_bills'), value = 'unpaid_bills'},
-				{label = _U('Jail'),            value = 'jail_menu'},
-				{label = _U('Pjail'), value = 'pjail_menu'}
+				{label = _U('Jail'),            value = 'jail_menu'}
 				
 			}
 

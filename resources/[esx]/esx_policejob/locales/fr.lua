@@ -1,7 +1,7 @@
 Locales['fr'] = {
 
   --Jail
-  ['jail'] = 'Emprisonner',
+  ['Jail'] = 'Emprisonner',
   ['jail_menu_info'] = 'Emprisonner pour combien de minutes ?',
   -- Cloakroom
   ['cloakroom'] = 'vestiaire',

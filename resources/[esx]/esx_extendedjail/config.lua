@@ -1,6 +1,6 @@
 -- Made by Ramsus --
 Config = {}
-Config.Locale = 'en'
+Config.Locale = 'fr'
 
 -- Locations
 Config.OutsideLocation = vector3(1847.95, 2586.26, 45.60)
@@ -24,7 +24,7 @@ Config.TimeAlarmLeft = 40000 -- MS
 -- Jail Blip
 Config.BlipSprite = 188
 Config.BlipColor = 63
-Config.BlipScale = 0.8
+Config.BlipScale = 0.9
 
 -- Discord Webhooks
 Config.IsWebhookEnabled = false
@@ -36,20 +36,20 @@ Config.Logo = "" -- Must end with .png
 Config.Wear = {
 		Male = {
 			['tshirt_1'] = 15,  ['tshirt_2'] = 0,
-			['torso_1']  = 8, 	['torso_2']  = 14,
+			['torso_1']  = 146, ['torso_2']  = 0,
 			['decals_1'] = 0,   ['decals_2'] = 0,
-			['arms']     = 8,   ['pants_1']  = 64,
-			['pants_2']  = 8,   ['shoes_1']  = 6,
-			['shoes_2']  = 0, 	['helmet_1'] = -1,
-			['helmet_2'] = 0, 	['bags_1'] = -1
+			['arms']     = 0,   ['pants_1']  = 3,
+			['pants_2']  = 7,   ['shoes_1']  = 12,
+			['shoes_2']  = 12,  ['chain_1']  = 50,
+			['chain_2']  = 0
 		},
 		Female = {
-			['tshirt_1'] = 15,  ['tshirt_2'] = 0,
-			['torso_1']  = 23, 	['torso_2']  = 0,
+			['tshirt_1'] = 3,   ['tshirt_2'] = 0,
+			['torso_1']  = 38,  ['torso_2']  = 3,
 			['decals_1'] = 0,   ['decals_2'] = 0,
-			['arms']     = 4,   ['pants_1']  = 41,
-			['pants_2']  = 0,   ['shoes_1']  = 4,
-			['shoes_2']  = 1, 	['helmet_1'] = -1,
-			['helmet_2'] = 0, 	['bags_1'] = -1
+			['arms']     = 2,   ['pants_1']  = 3,
+			['pants_2']  = 15,  ['shoes_1']  = 66,
+			['shoes_2']  = 5,   ['chain_1']  = 0,
+			['chain_2']  = 2
 		}
 }
