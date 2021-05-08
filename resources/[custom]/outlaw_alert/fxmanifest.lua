@@ -18,3 +18,8 @@ client_script {
 	"client/client.lua",
 	'client/config.lua',
 }
+
+dependencies {
+	'es_extended',
+	'esx_policejob'
+}
