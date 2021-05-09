@@ -97,7 +97,6 @@ local function GenerateTheButtons() -- We generate the buttons here to save on a
 			Sprite = v.Sprite,
 			Text = v.Name,
 			x = Ptx, y = Pty,
-			Rotation = 0.0
 		}
 	end
 	if Config.ExtrasEnabled then -- The extra buttons arent tied to the wheel, and can be moved with simple offsets.
@@ -202,7 +201,6 @@ local function DrawGUI()
 			Sprite = v.Sprite,
 			Text = v.Text,
 			x = v.x, y = v.y,
-			Rotation = v.Rotation,
 		})
 		if Button and not Cooldown then	-- If the button is clicked we execute the command, just like if the player typed it in chat.
 			if v.Sprite == "gloves" then
