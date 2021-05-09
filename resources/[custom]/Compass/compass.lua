@@ -37,7 +37,7 @@ Citizen.CreateThread( function()
 	end
 	
 	while compass.show do
-		Wait( 0 )
+		Wait( 5 )
 		
 		local pxDegree = compass.width / compass.fov
 		local playerHeadingDegrees = 0

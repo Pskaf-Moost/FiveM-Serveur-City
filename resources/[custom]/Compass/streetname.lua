@@ -9,16 +9,28 @@ streetName.textColour = {r = 255, g = 255, b = 255, a = 255}
 
 
 Citizen.CreateThread( function()
+	local playerPed = GetPlayerPed(-1)
 	local lastStreetA = 0
 	local lastStreetB = 0
-	local lastStreetName = {}
-	
-	while streetName.show do
-		Wait( 0 )
+	local lastStreetNameA = ''
+	local lastStreetNameB = ''
+	local streetText = '' 
+
+	while true do
+
+		::continue::
+		Wait( 5 )
+
+		if not streetName.show then
+			goto continue
+		end 
+
 		
-		local playerPos = GetEntityCoords( GetPlayerPed( -1 ), true )
+		local playerPos = GetEntityCoords( playerPed)
 		local streetA, streetB = GetStreetNameAtCoord(playerPos.x, playerPos.y, playerPos.z)
-		local street = {}
+		local lastStreetNameA =  GetStreetNameFromHashKey( lastStreetA )
+		local lastStreetNameB = GetStreetNameFromHashKey( lastStreetB )
+			
 		
 		if not ((streetA == lastStreetA or streetA == lastStreetB) and (streetB == lastStreetA or streetB == lastStreetB)) then
 			-- Ignores the switcharoo while doing circles on intersections
@@ -26,15 +38,16 @@ Citizen.CreateThread( function()
 			lastStreetB = streetB
 		end
 		
-		if lastStreetA ~= 0 then
-			table.insert( street, GetStreetNameFromHashKey( lastStreetA ) )
+		if lastStreetA ~= 0 then 
+			streetText = lastStreetNameA
 		end
 		
 		if lastStreetB ~= 0 then
-			table.insert( street, GetStreetNameFromHashKey( lastStreetB ) )
+			streetText = lastStreetNameA .. ' & ' .. lastStreetNameB
 		end
-		
-		drawText( table.concat( street, " & " ), streetName.position.x, streetName.position.y, {
+			
+
+		drawText(streetText  , streetName.position.x, streetName.position.y, {
 			size = streetName.textSize,
 			colour = streetName.textColour,
 			outline = true,
