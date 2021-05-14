@@ -230,6 +230,7 @@ Config.CustomPeds = {
 Config.Uniforms = {
 	recruit = {
 		male = {
+			sex = 0,
 			tshirt_1 = 59,  tshirt_2 = 1,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 0,   decals_2 = 0,
@@ -241,6 +242,7 @@ Config.Uniforms = {
 			ears_1 = 2,     ears_2 = 0
 		},
 		female = {
+			sex = 1,
 			tshirt_1 = 36,  tshirt_2 = 1,
 			torso_1 = 48,   torso_2 = 0,
 			decals_1 = 0,   decals_2 = 0,
@@ -255,6 +257,7 @@ Config.Uniforms = {
 
 	officer = {
 		male = {
+			sex = 0,
 			tshirt_1 = 58,  tshirt_2 = 0,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 0,   decals_2 = 0,
@@ -266,6 +269,7 @@ Config.Uniforms = {
 			ears_1 = 2,     ears_2 = 0
 		},
 		female = {
+			sex = 1,
 			tshirt_1 = 35,  tshirt_2 = 0,
 			torso_1 = 48,   torso_2 = 0,
 			decals_1 = 0,   decals_2 = 0,
@@ -280,6 +284,7 @@ Config.Uniforms = {
 
 	sergeant = {
 		male = {
+			sex = 0,
 			tshirt_1 = 58,  tshirt_2 = 0,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 1,
@@ -291,6 +296,7 @@ Config.Uniforms = {
 			ears_1 = 2,     ears_2 = 0
 		},
 		female = {
+			sex = 1,
 			tshirt_1 = 35,  tshirt_2 = 0,
 			torso_1 = 48,   torso_2 = 0,
 			decals_1 = 7,   decals_2 = 1,
@@ -305,6 +311,7 @@ Config.Uniforms = {
 
 	lieutenant = {
 		male = {
+			sex = 0,
 			tshirt_1 = 58,  tshirt_2 = 0,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 2,
@@ -316,6 +323,7 @@ Config.Uniforms = {
 			ears_1 = 2,     ears_2 = 0
 		},
 		female = {
+			sex = 1,
 			tshirt_1 = 35,  tshirt_2 = 0,
 			torso_1 = 48,   torso_2 = 0,
 			decals_1 = 7,   decals_2 = 2,
@@ -330,6 +338,7 @@ Config.Uniforms = {
 
 	boss = {
 		male = {
+			sex = 0,
 			tshirt_1 = 58,  tshirt_2 = 0,
 			torso_1 = 13,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
@@ -342,6 +351,7 @@ Config.Uniforms = {
 			bproof_1 = 0,  bproof_2 = 0
 		},
 		female = {
+			sex = 1,
 			tshirt_1 = 35,  tshirt_2 = 0,
 			torso_1 = 48,   torso_2 = 0,
 			decals_1 = 7,   decals_2 = 3,
@@ -356,34 +366,51 @@ Config.Uniforms = {
 
 	bullet_wear = {
 		male = {
+			sex = 0,
 			bproof_1 = 11,  bproof_2 = 1
 		},
 		female = {
+			sex = 1,
 			bproof_1 = 13,  bproof_2 = 1
 		}
 	},
 
 	gilet_wear = {
 		male = {
+			sex = 0,
 			tshirt_1 = 59,  tshirt_2 = 1
 		},
 		female = {
+			sex = 1,
 			tshirt_1 = 36,  tshirt_2 = 1
 		}
 	},
 
 	couverture = {
 		male = {
+			sex = 0,
 			tshirt_1 = 58,  tshirt_2 = 0,
-			torso_1 = 53,   torso_2 = 1,
+			torso_1 = 13,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 37,
 			pants_1 = 25,   pants_2 = 0,
 			shoes_1 = 25,   shoes_2 = 0,
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0,
+			ears_1 = 0,     ears_2 = 0,
 			bproof_1 = 0,  bproof_2 = 0
+		},
+		female = {
+			sex = 1,
+			tshirt_1 = 35,  tshirt_2 = 0,
+			torso_1 = 48,   torso_2 = 0,
+			decals_1 = 7,   decals_2 = 1,
+			arms = 44,
+			pants_1 = 34,   pants_2 = 0,
+			shoes_1 = 27,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0
 		}
 	}
 }

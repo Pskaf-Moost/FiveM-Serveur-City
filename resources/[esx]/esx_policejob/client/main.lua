@@ -29,6 +29,7 @@ function setUniform(uniform, playerPed)
 	TriggerEvent('skinchanger:getSkin', function(skin)
 		local uniformObject
 
+		print(skin.sex)
 		if skin.sex == 0 then
 			uniformObject = Config.Uniforms[uniform].male
 		else
