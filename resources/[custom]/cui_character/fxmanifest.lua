@@ -5,6 +5,7 @@ client_scripts {
     '@es_extended/locale.lua',
     'shared/config.lua',
     'locales/en.lua',
+    'locales/fr.lua',
     --'client/blacklist.lua',
     'client/camera.lua',
     'client/main.lua'
@@ -12,9 +13,12 @@ client_scripts {
 
 server_scripts {
     '@mysql-async/lib/MySQL.lua',
+    '@es_extended/locale.lua',
     'shared/config.lua',
     '@esx_identity/server/main.lua',
-    'server/main.lua'
+    'server/main.lua',
+    'locales/en.lua',
+    'locales/fr.lua'
 }
 
 ui_page('ui/index.html')

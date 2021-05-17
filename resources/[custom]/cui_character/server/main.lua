@@ -51,6 +51,24 @@ if not Config.StandAlone then
         TriggerEvent('cui_character:save', data)
     end)
 
+    ESX.RegisterServerCallback('cui_character:paying', function(source, callback, tabs)
+        local xPlayer = ESX.GetPlayerFromId(source)
+
+        local price = 0
+        for _, tab in ipairs(tabs) do
+            price = price + Config.Prices[tab]
+        end
+
+        if price <= xPlayer.getMoney()  then
+            xPlayer.removeMoney(price)
+            xPlayer.showNotification(_U('you_paid', price))
+
+            callback(true)
+        else
+            callback(false)
+        end
+    end)
+
     ESX.RegisterServerCallback('esx_skin:getPlayerSkin', function(source, cb)
         local xPlayer = ESX.GetPlayerFromId(source)
         MySQL.ready(function()

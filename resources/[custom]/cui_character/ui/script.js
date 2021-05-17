@@ -527,7 +527,8 @@ function closeWindow(save) {
     }
 
     $.post('https://cui_character/close', JSON.stringify({
-        save: save
+        save: save,
+        tabs : editedTabs
     }));
 }
 

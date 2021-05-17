@@ -89,6 +89,8 @@ local currentTab = nil
 local isVisible = false
 local isCancelable = true
 
+local shouldPay = false
+
 local playerLoaded = false
 local firstSpawn = true
 local identityLoaded = false
@@ -100,6 +102,8 @@ local oldChar = {}
 local oldLoadout = {}
 
 local currentIdentity = nil
+
+local xPlayer = nil
 
 local isOnDuty = false
 function SetOnDutyStatus(value)
@@ -361,10 +365,16 @@ AddEventHandler('skinchanger:modelLoaded', function()
     -- empty for now, no idea what it's purpose really is
 end)
 
-AddEventHandler('cui_character:close', function(save)
+AddEventHandler('cui_character:close', function(save, tabs)
     if (not save) and (not isCancelable) then
         return
     end
+
+    if save and shouldPay then
+        ESX.TriggerServerCallback('cui_character:paying', function(hasPaid)
+            save = hasPaid
+        end, tabs)
+    end 
 
     -- Saving and discarding changes
     if save then
@@ -387,6 +397,7 @@ AddEventHandler('cui_character:close', function(save)
     Camera.Deactivate()
 
     isCancelable = true
+    shouldPay = false
     setVisible(false)
 
     for i = 0, #openTabs do
@@ -395,7 +406,7 @@ AddEventHandler('cui_character:close', function(save)
 end)
 
 RegisterNetEvent('cui_character:open')
-AddEventHandler('cui_character:open', function(tabs, cancelable)
+AddEventHandler('cui_character:open', function(tabs, cancelable, non_free)
     if isOnDuty then
         AddTextEntry('notifyOnDuty', 'You cannot access this command while ~r~on duty~s~.')
         BeginTextCommandThefeedPost('notifyOnDuty')
@@ -404,6 +415,8 @@ AddEventHandler('cui_character:open', function(tabs, cancelable)
         isInterfaceOpening = false
         return
     end
+
+    shouldPay = non_free
 
     if isInterfaceOpening then
         return
@@ -502,7 +515,7 @@ end)
 
 AddEventHandler('cui_character:playerPrepared', function(newplayer)
     if newplayer and (not Config.EnableESXIdentityIntegration) then
-        TriggerEvent('cui_character:open', { 'identity', 'features', 'style', 'apparel' }, false)
+        TriggerEvent('cui_character:open', { 'identity', 'features', 'style', 'apparel' }, false, false)
     end
 end)
 
@@ -556,7 +569,8 @@ end)
 
 if not Config.StandAlone then
     RegisterNetEvent('esx:playerLoaded')
-    AddEventHandler('esx:playerLoaded', function(xPlayer)
+    AddEventHandler('esx:playerLoaded', function(player)
+        xPlayer = xPlayer
         playerLoaded = true
     end)
 
@@ -686,7 +700,7 @@ RegisterNUICallback('setCurrentTab', function(data, cb)
 end)
 
 RegisterNUICallback('close', function(data, cb)
-    TriggerEvent('cui_character:close', data['save'])
+    TriggerEvent('cui_character:close', data['save'], data['tabs'])
 end)
 
 RegisterNUICallback('updateMakeupType', function(data, cb)
@@ -1615,22 +1629,22 @@ Citizen.CreateThread(function()
                 if closestType == 'clothing' then
                     DisplayTooltip('use clothing store.')
                     if IsControlJustPressed(1, 38) then
-                        TriggerEvent('cui_character:open', { 'apparel' })
+                        TriggerEvent('cui_character:open', { 'apparel' }, true, true)
                     end
                 elseif closestType == 'barber' then
                     DisplayTooltip('use barber shop.')
                     if IsControlJustPressed(1, 38) then
-                        TriggerEvent('cui_character:open', { 'style' })
+                        TriggerEvent('cui_character:open', { 'style' }, true, true)
                     end
                 elseif closestType == 'surgery' then
                     DisplayTooltip('use platic surgery unit.')
                     if IsControlJustPressed(1, 38) then
-                        TriggerEvent('cui_character:open', { 'features' })
+                        TriggerEvent('cui_character:open', { 'features' }, true, true)
                     end
                 elseif closestType == 'identity' then
                     DisplayTooltip('change your identity.')
                     if IsControlJustPressed(1, 38) then
-                        TriggerEvent('cui_character:open', { 'identity' })
+                        TriggerEvent('cui_character:open', { 'identity' }, true, true)
                     end
                 end
             end

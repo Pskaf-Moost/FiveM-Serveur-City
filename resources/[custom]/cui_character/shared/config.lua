@@ -1,5 +1,7 @@
 Config = {}
 
+Config.Locale = 'fr'
+
 --[[ 
     This enables/disables the post-loading animation where camera starts in the clouds, 
     above the city like when switching characters in GTA V Story Mode.
@@ -9,6 +11,13 @@ Config.EnterCityAnimation = true
 -- Setting these to false will enable all colors available in the game.
 Config.UseNaturalHairColors = true
 Config.UseNaturalEyeColors = true
+
+Config.Prices = {
+    ['identity'] = 50000,
+    ['features'] = 10000,
+    ['style'] = 100,
+    ['apparel'] = 200
+}
 
 -- Map Locations
 Config.EnableClothingShops = true

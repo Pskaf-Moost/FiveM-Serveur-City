@@ -390,14 +390,14 @@ Config.Uniforms = {
 		male = {
 			sex = 0,
 			tshirt_1 = 58,  tshirt_2 = 0,
-			torso_1 = 13,   torso_2 = 0,
+			torso_1 = 53,   torso_2 = 1,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 37,
 			pants_1 = 25,   pants_2 = 0,
 			shoes_1 = 25,   shoes_2 = 0,
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 0,     ears_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
 			bproof_1 = 0,  bproof_2 = 0
 		},
 		female = {
