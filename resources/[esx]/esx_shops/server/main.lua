@@ -33,7 +33,8 @@ RegisterServerEvent('esx_shops:buyItem')
 AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
-	local sourceItem = xPLayer.getInventoryItem(itemname)
+	local sourceItem = xPlayer.getInventoryItem(itemname)
+
 	amount = ESX.Math.Round(amount)
 
 	-- is the player trying to exploit?
