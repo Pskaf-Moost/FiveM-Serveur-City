@@ -5,7 +5,7 @@
 
 
 ### _Prison_
-- [ ] Implémenter Esx_extended_jail : https://forum.cfx.re/t/extended-jail-esx-escape/1952776
+- [x] Implémenter Esx_extended_jail : https://forum.cfx.re/t/extended-jail-esx-escape/1952776
 Le menu prison doit être ajouté au menu esx_policejob (déja fait pour le premier esx_jail, voir dans *policejob/client/main.lua* ).
 
 - - Ce script permet à un ami du prisonnier de le libérer et d'avertir la police. Il y a une action à l'entrée de la prison pour le libérer.
@@ -16,7 +16,7 @@ Mais on ne sait pas comment est géré la fuite de la prison (si le joueur s'él
 
 - Ce script par contre ( https://forum.cfx.re/t/esx-simple-jail-breaking-system/612435 ) possède un bout de code quelquepart qui doit libérer le joueur de prison si il s'éloigne assez de la prison **(sans le téléporter)**, à mixer avec le script au dessus pour avoir une évasion focntionnelle.
 
-- [ ] Notifier la police si le prisonnier s'échappe quand il s'éloigne de la prison, ou alors notifier la police si quelqu'un rentre dans le périmètre de la prison, à voir.  Les notifications de stasiek_selldrugsv2 sont bien réalisés et avertissent la police, avec une petite image (que l'on pourra modifier). On peut reprendre son code pour les notifications.
+- [x] Notifier la police si le prisonnier s'échappe quand il s'éloigne de la prison, ou alors notifier la police si quelqu'un rentre dans le périmètre de la prison, à voir.  Les notifications de stasiek_selldrugsv2 sont bien réalisés et avertissent la police, avec une petite image (que l'on pourra modifier). On peut reprendre son code pour les notifications.
 
 ------------
 
@@ -87,11 +87,11 @@ Différents script de braquage à la place de celui déja installé :
 
 ### _Inventaire, Hud, Divers_ ###
 
-- [ ] Nouvelle interface création personnage (peut etre buggé) : https://github.com/PainedPsyche/cui_character
+- [x] Nouvelle interface création personnage (peut etre buggé) : https://github.com/PainedPsyche/cui_character
 
-- [ ] Il faut ajouter des items. 
+- [x] Il faut ajouter des items. 
 - - [x] Munitions : Les rendre achetables dans les magasins d'armes, (ou à l'armurerie pour la police). Il faut aussi les rendre utilisable, et lors de l'utilisation le player recevra les munitions.
-- - [ ] Il faut rajouter de l'alcool et d'autres nourriture avec ce script : (https://github.com/TheMrDeivid/ESX_shops_with_bars).
+- - [x] Il faut rajouter de l'alcool et d'autres nourriture avec ce script : (https://github.com/TheMrDeivid/ESX_shops_with_bars).
 Il rajoute des bars et un grand nombre d'item dans le BDD. Le Github contient Esx_shop et esx_basicneed qui sont déja installé, il faudra les remplacer et les back-up, au cas où.
 
 - [x] Il faut rajouter une options de véhicule lock, avec des clefs ou autre.
@@ -109,7 +109,7 @@ Les fatures qui sont intéréssantes :
 
 - [ ] Ce script permet au joueur de présenter ses licences au joueur devant lui ( https://forum.cfx.re/t/release-jsfour-idcard-esx/169787 ). Si on peut le modifier, modifier les images des cartes d'identité etc, ça peut être sympa.
 
-- [ ] Nouvelle interface pour le clotheShop : https://forum.cfx.re/t/release-esx-np-skinshop-update/993801 avec sauvegarde de tenue et menu.
+- [x] Nouvelle interface pour le clotheShop : https://forum.cfx.re/t/release-esx-np-skinshop-update/993801 avec sauvegarde de tenue et menu.
 
 - [x] Radar vitesse pour la police : https://forum.cfx.re/t/release-wraith-ars-2x-police-radar-and-plate-reader-v1-3-0/1058277
 
@@ -119,7 +119,7 @@ Les fatures qui sont intéréssantes :
 
 - [ ] Mettre des NPC dans les shop : https://forum.cfx.re/t/release-ped-npc-addon-shops-nightclub-drugs-update/433051
 
-- [ ] Pas de réticule de visée : https://forum.cfx.re/t/release-no-reticle-reticle-disabler-2-2-0/53168 
+- [x] Pas de réticule de visée : https://forum.cfx.re/t/release-no-reticle-reticle-disabler-2-2-0/53168 
 Le but est de créer des scènes de RP, pas de Headshot des gens et de casser leur jeu.
 
 
