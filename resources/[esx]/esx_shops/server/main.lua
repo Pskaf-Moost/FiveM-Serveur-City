@@ -33,7 +33,7 @@ RegisterServerEvent('esx_shops:buyItem')
 AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
-
+	local sourceItem = xPLayer.getInventoryItem(itemname)
 	amount = ESX.Math.Round(amount)
 
 	-- is the player trying to exploit?
@@ -59,7 +59,7 @@ AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
 	-- can the player afford this item?
 	if xPlayer.getMoney() >= price then
 		-- can the player carry the said amount of x item?
-		if xPlayer.canCarryItem(itemname,amount) then
+		if xPlayer.canCarryItem(itemName,amount) then
 			xPlayer.removeMoney(price)
 			xPlayer.addInventoryItem(itemName, amount)
 			TriggerClientEvent('esx:showNotification', _source, _U('bought', amount, itemLabel, ESX.Math.GroupDigits(price)))
