@@ -11,10 +11,15 @@ MySQL.ready(function()
 					ShopItems[shopResult[i].store] = {}
 				end
 
+				if shopResult[i].limit == -1 then
+					shopResult[i].limit = 30
+				end
+
 				table.insert(ShopItems[shopResult[i].store], {
 					label = shopResult[i].label,
 					item  = shopResult[i].item,
 					price = shopResult[i].price,
+					limit = shopResult[i].limit
 				})
 			else
 				print(('esx_shops: invalid item "%s" found!'):format(shopResult[i].item))
@@ -31,6 +36,7 @@ RegisterServerEvent('esx_shops:buyItem')
 AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
+	local sourceItem = xPlayer.getInventoryItem(itemName)
 
 	amount = ESX.Math.Round(amount)
 
@@ -57,15 +63,15 @@ AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
 	-- can the player afford this item?
 	if xPlayer.getMoney() >= price then
 		-- can the player carry the said amount of x item?
-		if xPlayer.canCarryItem(itemName, amount) then
+		if sourceItem.limit ~= -1 and (sourceItem.count + amount) > sourceItem.limit then
+			TriggerClientEvent('esx:showNotification', _source, _U('player_cannot_hold'))
+		else
 			xPlayer.removeMoney(price)
 			xPlayer.addInventoryItem(itemName, amount)
-			xPlayer.showNotification(_U('bought', amount, itemLabel, ESX.Math.GroupDigits(price)))
-		else
-			xPlayer.showNotification(_U('player_cannot_hold'))
+			TriggerClientEvent('esx:showNotification', _source, _U('bought', amount, itemLabel, ESX.Math.GroupDigits(price)))
 		end
 	else
 		local missingMoney = price - xPlayer.getMoney()
-		xPlayer.showNotification(_U('not_enough', ESX.Math.GroupDigits(missingMoney)))
+		TriggerClientEvent('esx:showNotification', _source, _U('not_enough', ESX.Math.GroupDigits(missingMoney)))
 	end
 end)
